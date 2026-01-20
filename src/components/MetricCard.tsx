@@ -25,13 +25,13 @@ const MetricCard = ({
 
   const variantStyles = {
     default: "glass",
-    highlight: "glass glow-coral border-coral/30",
+    highlight: "glass glow-pink border-primary/30",
     accent: "glass border-emerald/30",
   };
 
   const iconStyles = {
     default: "text-muted-foreground",
-    highlight: "text-coral",
+    highlight: "text-primary",
     accent: "text-emerald",
   };
 
