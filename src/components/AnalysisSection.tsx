@@ -38,11 +38,11 @@ const AnalysisSection = () => {
       </div>
 
       {/* Balance Card */}
-      <div className="glass rounded-xl p-6 glow-coral border-coral/20">
+      <div className="glass rounded-xl p-6 glow-pink border-primary/20">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="p-3 rounded-lg bg-coral/10">
-              <Wallet className="w-6 h-6 text-coral" />
+            <div className="p-3 rounded-lg bg-primary/10">
+              <Wallet className="w-6 h-6 text-primary" />
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Saldo remanescente em conta</p>

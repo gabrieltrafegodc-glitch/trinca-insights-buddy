@@ -9,6 +9,7 @@ import {
 import MetricCard from "@/components/MetricCard";
 import ReportHeader from "@/components/ReportHeader";
 import AnalysisSection from "@/components/AnalysisSection";
+import logoAdhub from "@/assets/logo-adhub.jpeg";
 
 const Index = () => {
   return (
@@ -106,11 +107,22 @@ const Index = () => {
           <AnalysisSection />
         </div>
 
-        {/* Footer */}
-        <div className="mt-16 pt-8 border-t border-border text-center animate-fade-up-delay-4">
-          <p className="text-sm text-muted-foreground">
-            Relatório gerado para <span className="font-medium text-foreground">Trinca Bar</span> • Janeiro 2025
-          </p>
+        {/* Footer with AdHub branding */}
+        <div className="mt-16 pt-8 border-t border-border animate-fade-up-delay-4">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-4">
+              <img 
+                src={logoAdhub} 
+                alt="AdHub Marketing Inteligente" 
+                className="h-12 w-auto rounded-lg"
+              />
+            </div>
+            <p className="text-sm text-muted-foreground text-center sm:text-right">
+              Relatório gerado para <span className="font-medium text-foreground">Trinca Bar</span>
+              <br />
+              <span className="text-primary">Janeiro 2025</span>
+            </p>
+          </div>
         </div>
       </div>
     </div>

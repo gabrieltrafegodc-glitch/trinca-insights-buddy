@@ -22,9 +22,11 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        coral: {
-          DEFAULT: "hsl(var(--coral))",
-          glow: "hsl(var(--coral-glow))",
+        adhub: {
+          pink: "hsl(var(--adhub-pink))",
+          "pink-glow": "hsl(var(--adhub-pink-glow))",
+          teal: "hsl(var(--adhub-teal))",
+          "teal-light": "hsl(var(--adhub-teal-light))",
         },
         emerald: "hsl(var(--emerald))",
         gold: "hsl(var(--gold))",
