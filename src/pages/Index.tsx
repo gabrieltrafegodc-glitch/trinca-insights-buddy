@@ -1,14 +1,7 @@
-import { 
-  DollarSign, 
-  Users, 
-  Eye, 
-  MousePointer, 
-  UserCheck,
-  TrendingDown
-} from "lucide-react";
-import MetricCard from "@/components/MetricCard";
+import { AlertCircle, Wallet } from "lucide-react";
 import ReportHeader from "@/components/ReportHeader";
-import AnalysisSection from "@/components/AnalysisSection";
+import CampaignReport from "@/components/CampaignReport";
+import { campaigns } from "@/data/campaigns";
 import logoAdhub from "@/assets/logo-adhub.jpeg";
 
 const Index = () => {
@@ -18,93 +11,52 @@ const Index = () => {
         {/* Header */}
         <ReportHeader />
 
-        {/* Investment Highlight */}
-        <div className="mt-12">
-          <MetricCard
-            icon={DollarSign}
-            label="Investimento em Anúncios"
-            value="R$ 99,92"
-            subValue="Meta Ads"
-            variant="highlight"
-            delay={1}
-          />
+        {/* Campaigns */}
+        <div className="mt-12 space-y-12">
+          {campaigns.map((campaign, index) => (
+            <div key={index} className="animate-fade-up">
+              {index > 0 && (
+                <div className="border-t border-border mb-8" />
+              )}
+              <CampaignReport campaign={campaign} index={index} />
+            </div>
+          ))}
         </div>
 
-        {/* Metrics Grid */}
-        <div className="mt-8">
-          <h2 className="text-lg font-semibold text-muted-foreground mb-4 animate-fade-up-delay-1">
-            📈 Desempenho da Campanha
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <MetricCard
-              icon={Users}
-              label="Alcance"
-              value="21.492"
-              subValue="pessoas atingidas"
-              delay={2}
-            />
-            <MetricCard
-              icon={Eye}
-              label="Impressões"
-              value="34.967"
-              subValue="vezes exibido"
-              delay={2}
-            />
-            <MetricCard
-              icon={MousePointer}
-              label="Cliques"
-              value="150"
-              subValue="interações"
-              delay={2}
-            />
-            <MetricCard
-              icon={UserCheck}
-              label="Visitas no Perfil"
-              value="656"
-              subValue="usuários visitaram"
-              variant="accent"
-              delay={3}
-            />
-            <MetricCard
-              icon={TrendingDown}
-              label="CPM"
-              value="R$ 2,85"
-              subValue="custo por mil impressões"
-              delay={3}
-            />
-            <MetricCard
-              icon={TrendingDown}
-              label="CPC"
-              value="R$ 0,67"
-              subValue="custo por clique"
-              delay={3}
-            />
-          </div>
-        </div>
-
-        {/* Cost per Profile Visit - Highlighted */}
-        <div className="mt-6 animate-fade-up-delay-3">
-          <div className="glass rounded-xl p-6 border-emerald/30 bg-emerald/5">
-            <div className="flex items-center justify-between flex-wrap gap-4">
-              <div className="flex items-center gap-4">
-                <div className="p-3 rounded-lg bg-emerald/10">
-                  <UserCheck className="w-6 h-6 text-emerald" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Custo por visita no perfil</p>
-                  <p className="text-3xl font-bold text-emerald">R$ 0,15</p>
-                </div>
+        {/* Observation Card */}
+        <div className="mt-12 animate-fade-up-delay-4">
+          <div className="glass rounded-xl p-6 border-l-4 border-l-gold">
+            <div className="flex items-start gap-4">
+              <div className="p-3 rounded-lg bg-gold/10">
+                <AlertCircle className="w-6 h-6 text-gold" />
               </div>
-              <div className="px-4 py-2 rounded-full bg-emerald/10 border border-emerald/20">
-                <span className="text-sm font-medium text-emerald">Excelente Performance</span>
+              <div className="space-y-2">
+                <h3 className="text-lg font-semibold text-foreground">Observação Importante</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  A campanha de <span className="text-foreground font-medium">Quarta-feira – Roda de Samba</span> não 
+                  saiu da fase de aprendizado, pois a verba entrou muito tarde na quarta-feira, 
+                  o que limitou a entrega e o tempo de otimização.
+                </p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Analysis Section */}
-        <div className="mt-12">
-          <AnalysisSection />
+        {/* Balance Card */}
+        <div className="mt-6 animate-fade-up-delay-4">
+          <div className="glass rounded-xl p-6 glow-pink border-primary/20">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <div className="p-3 rounded-lg bg-primary/10">
+                  <Wallet className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">Saldo remanescente em conta</p>
+                  <p className="text-2xl font-bold gradient-text">R$ 86,37</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Footer with AdHub branding */}
