@@ -1,4 +1,3 @@
-import { AlertCircle } from "lucide-react";
 import ReportHeader from "@/components/ReportHeader";
 import CampaignAccordion from "@/components/CampaignAccordion";
 import { campaigns } from "@/data/campaigns";
@@ -19,24 +18,6 @@ const Index = () => {
           <CampaignAccordion campaigns={campaigns} />
         </div>
 
-        {/* Observation Card */}
-        <div className="mt-12 animate-fade-up-delay-4">
-          <div className="glass rounded-xl p-6 border-l-4 border-l-gold">
-            <div className="flex items-start gap-4">
-              <div className="p-3 rounded-lg bg-gold/10">
-                <AlertCircle className="w-6 h-6 text-gold" />
-              </div>
-              <div className="space-y-2">
-                <h3 className="text-lg font-semibold text-foreground">Observação Importante</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  A campanha de <span className="text-foreground font-medium">Quarta-feira – Roda de Samba</span> não 
-                  saiu da fase de aprendizado, pois a verba entrou muito tarde na quarta-feira, 
-                  o que limitou a entrega e o tempo de otimização.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
 
 
         {/* Footer with AdHub branding */}
