@@ -1,4 +1,4 @@
-import { AlertCircle, Wallet } from "lucide-react";
+import { AlertCircle } from "lucide-react";
 import ReportHeader from "@/components/ReportHeader";
 import CampaignAccordion from "@/components/CampaignAccordion";
 import { campaigns } from "@/data/campaigns";
@@ -38,22 +38,6 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Balance Card */}
-        <div className="mt-6 animate-fade-up-delay-4">
-          <div className="glass rounded-xl p-6 glow-pink border-primary/20">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-4">
-                <div className="p-3 rounded-lg bg-primary/10">
-                  <Wallet className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Saldo remanescente em conta</p>
-                  <p className="text-2xl font-bold gradient-text">R$ 86,37</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
         {/* Footer with AdHub branding */}
         <div className="mt-16 pt-8 border-t border-border animate-fade-up-delay-4">
