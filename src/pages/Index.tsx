@@ -1,6 +1,6 @@
 import { AlertCircle, Wallet } from "lucide-react";
 import ReportHeader from "@/components/ReportHeader";
-import CampaignReport from "@/components/CampaignReport";
+import CampaignAccordion from "@/components/CampaignAccordion";
 import { campaigns } from "@/data/campaigns";
 import logoAdhub from "@/assets/logo-adhub.jpeg";
 
@@ -11,16 +11,12 @@ const Index = () => {
         {/* Header */}
         <ReportHeader />
 
-        {/* Campaigns */}
-        <div className="mt-12 space-y-12">
-          {campaigns.map((campaign, index) => (
-            <div key={index} className="animate-fade-up">
-              {index > 0 && (
-                <div className="border-t border-border mb-8" />
-              )}
-              <CampaignReport campaign={campaign} index={index} />
-            </div>
-          ))}
+        {/* Campaigns Accordion */}
+        <div className="mt-12">
+          <h2 className="text-lg font-semibold text-muted-foreground mb-6 animate-fade-up">
+            📊 Campanhas do Período
+          </h2>
+          <CampaignAccordion campaigns={campaigns} />
         </div>
 
         {/* Observation Card */}

@@ -6,8 +6,6 @@ import {
   UserCheck,
   TrendingDown,
   TrendingUp,
-  Calendar,
-  Target,
   LucideIcon
 } from "lucide-react";
 import MetricCard from "./MetricCard";
@@ -37,26 +35,8 @@ interface CampaignReportProps {
 }
 
 const CampaignReport = ({ campaign, index }: CampaignReportProps) => {
-  const EventIcon = campaign.eventIcon;
-  
   return (
-    <div className="space-y-6 pt-8 first:pt-0">
-      {/* Campaign Header */}
-      <div className="flex flex-wrap gap-4 items-center">
-        <div className="flex items-center gap-2 px-4 py-2.5 rounded-lg glass">
-          <EventIcon className="w-4 h-4 text-primary" />
-          <span className="text-sm font-medium">{campaign.eventName}</span>
-        </div>
-        <div className="flex items-center gap-2 px-4 py-2.5 rounded-lg glass">
-          <Calendar className="w-4 h-4 text-muted-foreground" />
-          <span className="text-sm text-muted-foreground">{campaign.eventDate}</span>
-        </div>
-        <div className="flex items-center gap-2 px-4 py-2.5 rounded-lg glass">
-          <Target className="w-4 h-4 text-emerald" />
-          <span className="text-sm text-emerald font-medium">{campaign.campaignType}</span>
-        </div>
-      </div>
-
+    <div className="space-y-6">
       {/* Investment */}
       <MetricCard
         icon={DollarSign}
