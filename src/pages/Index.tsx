@@ -1,6 +1,6 @@
 import ReportHeader from "@/components/ReportHeader";
 import CampaignAccordion from "@/components/CampaignAccordion";
-import { campaigns } from "@/data/campaigns";
+import { campaignsByMonth } from "@/data/campaigns";
 import logoAdhub from "@/assets/logo-adhub.jpeg";
 
 const Index = () => {
@@ -10,12 +10,12 @@ const Index = () => {
         {/* Header */}
         <ReportHeader />
 
-        {/* Campaigns Accordion */}
+        {/* Campaigns by Month */}
         <div className="mt-12">
           <h2 className="text-lg font-semibold text-muted-foreground mb-6 animate-fade-up">
-            📊 Campanhas do Período
+            📊 Campanhas por Período
           </h2>
-          <CampaignAccordion campaigns={campaigns} />
+          <CampaignAccordion monthGroups={campaignsByMonth} />
         </div>
 
 
