@@ -1,4 +1,9 @@
-import { Phone, Target, FileText, Zap, Globe, CheckCircle, Calendar, User } from "lucide-react";
+import { 
+  Phone, Target, FileText, Zap, Globe, CheckCircle, Calendar, User, 
+  DollarSign, TrendingUp, BarChart3, Megaphone, PenTool, Layout, 
+  Bot, Eye, Rocket, ShoppingBag, BookOpen, CalendarCheck, ArrowUpRight,
+  Handshake, Clock, Mail
+} from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Separator } from "@/components/ui/separator";
@@ -16,15 +21,10 @@ const PropostaWinnie = () => {
       <div className="container max-w-4xl mx-auto px-4 py-8 md:py-12">
         {/* Header */}
         <div className="animate-fade-up">
-          <div className="flex items-center justify-between flex-wrap gap-6 mb-8">
-            {/* Logos */}
+          <div className="flex items-center justify-between flex-wrap gap-6 mb-6">
             <div className="flex items-center gap-4">
               <div className="w-14 h-14 rounded-xl overflow-hidden bg-white p-1 flex items-center justify-center">
-                <img 
-                  src={logoWinnie} 
-                  alt="Winnie Paludetto" 
-                  className="w-full h-full object-contain"
-                />
+                <img src={logoWinnie} alt="Winnie Paludetto" className="w-full h-full object-contain" />
               </div>
               <div className="h-10 w-px bg-border" />
               <div className="flex items-center gap-2">
@@ -36,239 +36,282 @@ const PropostaWinnie = () => {
                 <span className="text-xs text-muted-foreground">Marketing Inteligente</span>
               </div>
             </div>
-
-            {/* Date Info */}
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Calendar className="w-4 h-4" />
               <span>04 de Fevereiro de 2026</span>
             </div>
           </div>
 
-          {/* Title Section */}
-          <div className="text-center mb-8 space-y-2">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-4">
+          <div className="text-center mb-6 space-y-2">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-3">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse-slow" />
-              <span className="text-sm font-medium text-primary">Proposta Comercial</span>
+              <span className="text-sm font-medium text-primary">Proposta de Parceria Estratégica</span>
             </div>
             <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight">
-              <span className="gradient-text">Proposta de Serviços de Marketing Digital</span>
+              <span className="gradient-text">Parceria Estratégica de Marketing Digital</span>
             </h1>
-            <p className="text-lg text-muted-foreground">para Winnie Paludetto - Psicóloga</p>
+            <p className="text-lg text-muted-foreground">para Winnie Paludetto — Psicóloga</p>
             <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mt-2">
               <User className="w-4 h-4" />
-              <span>Preparado por: Gabriel Rodrigues - Estrategista Digital</span>
+              <span>Apresentado por: Gabriel Rodrigues — Estrategista Digital</span>
             </div>
           </div>
         </div>
 
         {/* Introduction */}
-        <Card className="glass mb-6 animate-fade-up-delay-1">
-          <CardContent className="pt-6">
-            <p className="text-muted-foreground leading-relaxed">
-              Prezada <span className="text-foreground font-medium">Winnie</span>, nós da AdHubMarketing apresentamos esta proposta de marketing digital com foco em <span className="text-primary font-medium">gestão de tráfego e captação de leads</span> para terapia online no Brasil e exterior, visando maximizar seu retorno com leads qualificados.
+        <Card className="glass mb-5 animate-fade-up-delay-1">
+          <CardContent className="pt-5 pb-4">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Prezada <span className="text-foreground font-medium">Winnie</span>, nós da AdHubMarketing apresentamos esta parceria estratégica para <span className="text-primary font-medium">lotar sua agenda de atendimentos</span>, aumentar seus preços gradativamente, vender sessões emergenciais de alto ticket e infoprodutos de baixo ticket, com todo o suporte de marketing e automação.
             </p>
           </CardContent>
         </Card>
 
-        {/* Services Section */}
-        <Card className="glass mb-6 animate-fade-up-delay-2">
-          <CardHeader className="pb-4">
-            <CardTitle className="flex items-center gap-2 text-lg">
-              <Target className="w-5 h-5 text-primary" />
-              Serviços Oferecidos
+        {/* Section 1: Pricing Structure */}
+        <Card className="glass mb-5 animate-fade-up-delay-2">
+          <CardHeader className="pb-3">
+            <CardTitle className="flex items-center gap-2 text-base">
+              <DollarSign className="w-5 h-5 text-primary" />
+              Estrutura de Preços e Remuneração
             </CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="grid gap-4">
-              {/* Service 1 */}
-              <div className="p-4 rounded-lg bg-secondary/30 border border-border/50">
-                <div className="flex items-start gap-3">
-                  <div className="p-2 rounded-lg bg-primary/10">
-                    <Globe className="w-4 h-4 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">Gestão de Tráfego Pago</h4>
-                    <p className="text-sm text-muted-foreground">
-                      Gerar leads para terapia online no Brasil e exterior (EUA, falantes de português). 
-                      <span className="text-foreground"> Google Ads R$ 1.500,00/mês</span> ou 
-                      <span className="text-foreground"> Google + Meta Ads R$ 2.000,00/mês</span>. 
-                      Segmentação precisa e remarketing.
-                    </p>
-                  </div>
-                </div>
+          <CardContent className="space-y-3">
+            <div className="overflow-x-auto">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead className="text-foreground text-xs">Serviço</TableHead>
+                    <TableHead className="text-foreground text-xs text-right">Atual</TableHead>
+                    <TableHead className="text-foreground text-xs text-right">Novo</TableHead>
+                    <TableHead className="text-foreground text-xs text-right">Acréscimo AdHub</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  <TableRow>
+                    <TableCell className="font-medium text-sm">Consulta Individual</TableCell>
+                    <TableCell className="text-right text-sm text-muted-foreground">R$ 150,00</TableCell>
+                    <TableCell className="text-right text-sm text-primary font-semibold">R$ 200,00</TableCell>
+                    <TableCell className="text-right text-sm text-accent font-semibold">R$ 50,00</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium text-sm">Pacote 4 Sessões</TableCell>
+                    <TableCell className="text-right text-sm text-muted-foreground">R$ 520,00</TableCell>
+                    <TableCell className="text-right text-sm text-primary font-semibold">R$ 720,00</TableCell>
+                    <TableCell className="text-right text-sm text-accent font-semibold">R$ 180,00 (25%)</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </div>
+            <div className="flex flex-col gap-1.5 text-sm">
+              <div className="flex items-start gap-2">
+                <CheckCircle className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />
+                <span className="text-muted-foreground"><span className="text-foreground font-medium">Mensalidade fixa:</span> R$ 1.000,00/mês + percentual sobre acréscimo nas vendas</span>
               </div>
-
-              {/* Service 2 */}
-              <div className="p-4 rounded-lg bg-secondary/30 border border-border/50">
-                <div className="flex items-start gap-3">
-                  <div className="p-2 rounded-lg bg-primary/10">
-                    <FileText className="w-4 h-4 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">Landing Pages para Leads</h4>
-                    <p className="text-sm text-muted-foreground">
-                      Páginas otimizadas para conversão (terapia e e-book). 
-                      <span className="text-foreground"> R$ 1.000,00 (individual)</span> ou 
-                      <span className="text-foreground"> R$ 800,00/mês</span> (recorrente, 1 página/mês com testes A/B).
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Service 3 */}
-              <div className="p-4 rounded-lg bg-secondary/30 border border-border/50">
-                <div className="flex items-start gap-3">
-                  <div className="p-2 rounded-lg bg-primary/10">
-                    <Zap className="w-4 h-4 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">Automação de Contato</h4>
-                    <p className="text-sm text-muted-foreground">
-                      Webhook para envio de dados de leads ao WhatsApp com formulário de qualificação, 
-                      substituindo redirecionamento atual do site.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Service 4 */}
-              <div className="p-4 rounded-lg bg-secondary/30 border border-border/50">
-                <div className="flex items-start gap-3">
-                  <div className="p-2 rounded-lg bg-primary/10">
-                    <Target className="w-4 h-4 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">Estratégia para E-book</h4>
-                    <p className="text-sm text-muted-foreground">
-                      Produto de entrada para leads não convertidos, com campanhas e landing pages 
-                      específicas para captação de dados e remarketing.
-                    </p>
-                  </div>
-                </div>
+              <div className="flex items-start gap-2">
+                <Eye className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />
+                <span className="text-muted-foreground"><span className="text-foreground font-medium">Transparência:</span> Controle financeiro conjunto de vendas e comissões</span>
               </div>
             </div>
           </CardContent>
         </Card>
 
-        {/* Benefits Section */}
-        <Card className="glass mb-6 animate-fade-up-delay-3">
-          <CardHeader className="pb-4">
-            <CardTitle className="flex items-center gap-2 text-lg">
-              <CheckCircle className="w-5 h-5 text-accent" />
-              Benefícios
+        {/* Section 2: Traffic Investment */}
+        <Card className="glass mb-5 animate-fade-up-delay-2">
+          <CardHeader className="pb-3">
+            <CardTitle className="flex items-center gap-2 text-base">
+              <TrendingUp className="w-5 h-5 text-primary" />
+              Investimento em Tráfego
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid sm:grid-cols-2 gap-3">
+            <div className="flex flex-col gap-1.5 text-sm">
+              <div className="flex items-start gap-2">
+                <ArrowUpRight className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />
+                <span className="text-muted-foreground"><span className="text-foreground font-medium">Inicial:</span> R$ 1.500,00/mês, por conta da cliente</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <ArrowUpRight className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />
+                <span className="text-muted-foreground"><span className="text-foreground font-medium">Reinvestimento:</span> 10% a 25% do faturamento mensal reinvestido em tráfego no mês seguinte</span>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Section 3: Services */}
+        <Card className="glass mb-5 animate-fade-up-delay-3">
+          <CardHeader className="pb-3">
+            <CardTitle className="flex items-center gap-2 text-base">
+              <Rocket className="w-5 h-5 text-primary" />
+              Serviços Oferecidos pela AdHubMarketing
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid sm:grid-cols-2 gap-2.5">
               {[
-                "Leads qualificados com segmentação precisa (Brasil e exterior)",
-                "Otimização de custos via testes A/B e análise de dados",
-                "Automação para atendimento ágil de leads em tempo real",
-                "Expansão internacional para brasileiros no exterior"
-              ].map((benefit, index) => (
-                <div key={index} className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-accent mt-0.5 shrink-0" />
-                  <span className="text-sm text-muted-foreground">{benefit}</span>
+                { icon: Target, label: "Estratégia de Marketing", desc: "Planejamento para captação e vendas" },
+                { icon: PenTool, label: "Redação/Copywriting", desc: "Textos persuasivos para anúncios e páginas" },
+                { icon: Globe, label: "Site Institucional", desc: "Novo site com agendamento e checkout (Stripe/PIX)" },
+                { icon: Layout, label: "Landing Pages Segmentadas", desc: "Páginas por dor com infoprodutos e sessões" },
+                { icon: Zap, label: "Automação", desc: "Webhooks, prospecção e nutrição de leads" },
+                { icon: BarChart3, label: "Trackeamento", desc: "Monitoramento de campanhas" },
+                { icon: Megaphone, label: "Gestão de Tráfego", desc: "Google Ads e Meta Ads para leads qualificados" },
+                { icon: Bot, label: "Futuro com IA", desc: "Agentes de IA para atendimento inicial" },
+              ].map((service, i) => (
+                <div key={i} className="flex items-start gap-2.5 p-2.5 rounded-lg bg-secondary/30 border border-border/50">
+                  <div className="p-1.5 rounded-md bg-primary/10 shrink-0">
+                    <service.icon className="w-3.5 h-3.5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-foreground leading-tight">{service.label}</p>
+                    <p className="text-xs text-muted-foreground">{service.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>
           </CardContent>
         </Card>
 
-        {/* Investment Table */}
-        <Card className="glass mb-6 animate-fade-up-delay-3">
-          <CardHeader className="pb-4">
-            <CardTitle className="text-lg">💰 Investimento Total</CardTitle>
+        {/* Section 4: Winnie's Functions */}
+        <Card className="glass mb-5 animate-fade-up-delay-3">
+          <CardHeader className="pb-3">
+            <CardTitle className="flex items-center gap-2 text-base">
+              <User className="w-5 h-5 text-primary" />
+              Funções da Winnie
+            </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="overflow-x-auto">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead className="text-foreground">Serviço</TableHead>
-                    <TableHead className="text-foreground text-right">Valor Mensal</TableHead>
-                    <TableHead className="text-foreground text-right">Valor Pontual</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  <TableRow>
-                    <TableCell className="font-medium">Gestão Tráfego (Google Ads)</TableCell>
-                    <TableCell className="text-right text-primary font-semibold">R$ 1.500,00</TableCell>
-                    <TableCell className="text-right text-muted-foreground">-</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">Gestão Tráfego (Google + Meta)</TableCell>
-                    <TableCell className="text-right text-primary font-semibold">R$ 2.000,00</TableCell>
-                    <TableCell className="text-right text-muted-foreground">-</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">Landing Page (Recorrente)</TableCell>
-                    <TableCell className="text-right text-primary font-semibold">R$ 800,00</TableCell>
-                    <TableCell className="text-right text-muted-foreground">-</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">Landing Page (Individual)</TableCell>
-                    <TableCell className="text-right text-muted-foreground">-</TableCell>
-                    <TableCell className="text-right text-primary font-semibold">R$ 1.000,00/página</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">Webhook/Formulário</TableCell>
-                    <TableCell className="text-right text-accent">Incluso na gestão</TableCell>
-                    <TableCell className="text-right text-muted-foreground">-</TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
+            <div className="flex flex-col gap-1.5 text-sm">
+              {[
+                { icon: DollarSign, text: "Mensalidade: R$ 1.000,00/mês para serviços AdHubMarketing" },
+                { icon: TrendingUp, text: "Investimento em Tráfego: R$ 1.500,00 inicial + reinvestimento de 10-25% do faturamento" },
+                { icon: FileText, text: "Gravação/Edição: Produção de conteúdos para infoprodutos e marketing" },
+                { icon: Phone, text: "Atendimento de Leads: Fechamento de vendas com roteiro fornecido (futuramente automatizado com IA)" },
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-2">
+                  <item.icon className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />
+                  <span className="text-muted-foreground">{item.text}</span>
+                </div>
+              ))}
             </div>
-            <p className="text-xs text-muted-foreground mt-3 italic">
-              * Investimento em mídia não incluso, a ser definido em conjunto.
+          </CardContent>
+        </Card>
+
+        {/* Section 5: Objectives */}
+        <Card className="glass mb-5 animate-fade-up-delay-3">
+          <CardHeader className="pb-3">
+            <CardTitle className="flex items-center gap-2 text-base">
+              <Target className="w-5 h-5 text-accent" />
+              Objetivos da Parceria
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid sm:grid-cols-2 gap-2.5">
+              {[
+                { icon: CalendarCheck, label: "Lotar Agenda", desc: "Preencher todos os horários disponíveis" },
+                { icon: TrendingUp, label: "Subir Preços", desc: "Aumentar valores gradativamente com agenda cheia" },
+                { icon: Zap, label: "Sessões Emergenciais", desc: "Vendas de alto ticket para urgências" },
+                { icon: BookOpen, label: "Infoprodutos", desc: "Vendas de baixo ticket como porta de entrada" },
+              ].map((obj, i) => (
+                <div key={i} className="flex items-start gap-2.5 p-3 rounded-lg border border-primary/20 bg-primary/5">
+                  <obj.icon className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">{obj.label}</p>
+                    <p className="text-xs text-muted-foreground">{obj.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Section 6: Strategy */}
+        <Card className="glass mb-5 animate-fade-up-delay-4">
+          <CardHeader className="pb-3">
+            <CardTitle className="flex items-center gap-2 text-base">
+              <ShoppingBag className="w-5 h-5 text-primary" />
+              Estratégia de Produtos e Captação
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Criação de <span className="text-foreground font-medium">infoprodutos e landing pages segmentadas</span> por dores (ex.: relacionamentos, depressão), com upsell (sessões/pacotes) e downsell (material gratuito). Captação direta para consultas e testes contínuos para otimização. Temas serão levantados em <span className="text-primary font-medium">reuniões colaborativas</span>.
             </p>
           </CardContent>
         </Card>
 
-        {/* Contract & Next Steps */}
-        <div className="grid md:grid-cols-2 gap-6 mb-6 animate-fade-up-delay-4">
+        {/* Section 7: Benefits */}
+        <Card className="glass mb-5 animate-fade-up-delay-4">
+          <CardHeader className="pb-3">
+            <CardTitle className="flex items-center gap-2 text-base">
+              <CheckCircle className="w-5 h-5 text-accent" />
+              Benefícios da Parceria
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid sm:grid-cols-2 gap-2">
+              {[
+                "Agenda lotada e maior receita",
+                "Diversificação com sessões emergenciais e infoprodutos",
+                "Infraestrutura digital completa (site, automações, pagamentos)",
+                "Crescimento sustentável com suporte estratégico",
+              ].map((b, i) => (
+                <div key={i} className="flex items-start gap-2">
+                  <CheckCircle className="w-3.5 h-3.5 text-accent mt-0.5 shrink-0" />
+                  <span className="text-sm text-muted-foreground">{b}</span>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Sections 8 & 9: Contract + Next Steps */}
+        <div className="grid md:grid-cols-2 gap-4 mb-5 animate-fade-up-delay-4">
           <Card className="glass">
-            <CardHeader className="pb-3">
-              <CardTitle className="text-base">📋 Contrato</CardTitle>
+            <CardHeader className="pb-2">
+              <CardTitle className="text-sm flex items-center gap-2">
+                <Clock className="w-4 h-4 text-primary" />
+                Contrato
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                Contrato de <span className="text-foreground font-medium">6 meses</span>, com cancelamento sem multa 
-                mediante aviso prévio por escrito de 30 dias.
+                Contrato de <span className="text-foreground font-medium">6 meses</span>, cancelamento sem multa com aviso prévio de 30 dias.
               </p>
             </CardContent>
           </Card>
 
           <Card className="glass">
-            <CardHeader className="pb-3">
-              <CardTitle className="text-base">🚀 Próximos Passos</CardTitle>
+            <CardHeader className="pb-2">
+              <CardTitle className="text-sm flex items-center gap-2">
+                <Rocket className="w-4 h-4 text-primary" />
+                Próximos Passos
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <ul className="text-sm text-muted-foreground space-y-1">
-                <li>• Aprovação da proposta para planejamento</li>
-                <li>• Reunião de alinhamento sobre personas</li>
-                <li>• Início das campanhas em 7-10 dias</li>
+                <li className="flex items-start gap-1.5"><span className="text-primary">•</span> Aprovação da parceria e estrutura de custos</li>
+                <li className="flex items-start gap-1.5"><span className="text-primary">•</span> Reunião para temas e prioridades de infoprodutos</li>
+                <li className="flex items-start gap-1.5"><span className="text-primary">•</span> Início de site e campanhas em 7-10 dias</li>
               </ul>
             </CardContent>
           </Card>
         </div>
 
         {/* Final Considerations */}
-        <Card className="glass mb-8 animate-fade-up-delay-4 border-l-4 border-l-primary">
-          <CardContent className="pt-6">
+        <Card className="glass mb-6 animate-fade-up-delay-4 border-l-4 border-l-primary">
+          <CardContent className="pt-5 pb-4">
             <p className="text-muted-foreground text-sm">
-              Estamos comprometidos em trazer <span className="text-foreground font-medium">resultados concretos</span> para seu negócio. 
-              Para dúvidas ou ajustes, estamos à disposição.
+              Estamos comprometidos em <span className="text-foreground font-medium">transformar sua presença digital e resultados</span>. Contate-nos para ajustes ou próximos passos.
             </p>
           </CardContent>
         </Card>
 
-        <Separator className="mb-8" />
+        <Separator className="mb-6" />
 
         {/* Signature & Footer */}
         <div className="animate-fade-up-delay-4">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-            <div className="space-y-2">
+            <div className="space-y-1.5">
               <p className="text-sm text-muted-foreground">Atenciosamente,</p>
               <p className="font-semibold text-foreground">Gabriel Rodrigues</p>
               <p className="text-sm text-muted-foreground">AdHubMarketing</p>
@@ -282,17 +325,10 @@ const PropostaWinnie = () => {
                 (44) 99963-6056
               </a>
             </div>
-
-            <div className="flex items-center gap-4">
-              <img 
-                src={logoAdhub} 
-                alt="AdHub Marketing Inteligente" 
-                className="h-12 w-auto rounded-lg"
-              />
-            </div>
+            <img src={logoAdhub} alt="AdHub Marketing Inteligente" className="h-12 w-auto rounded-lg" />
           </div>
 
-          <div className="mt-8 pt-4 border-t border-border text-center">
+          <div className="mt-6 pt-4 border-t border-border text-center">
             <p className="text-xs text-muted-foreground">
               AdHubMarketing • Proposta válida por 15 dias • 04 de Fevereiro de 2026
             </p>
