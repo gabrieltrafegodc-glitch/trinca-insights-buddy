@@ -62,7 +62,7 @@ const PropostaWinnie = () => {
         <Card className="glass mb-5 animate-fade-up-delay-1">
           <CardContent className="pt-5 pb-4">
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Prezada <span className="text-foreground font-medium">Winnie</span>, nós da AdHubMarketing apresentamos esta parceria estratégica para <span className="text-primary font-medium">lotar sua agenda de atendimentos</span>, aumentar seus preços gradativamente, vender sessões emergenciais de alto ticket e infoprodutos de baixo ticket, com todo o suporte de marketing e automação.
+              <span className="text-foreground font-medium">Winnie</span>, nós da AdHubMarketing apresentamos esta parceria estratégica para <span className="text-primary font-medium">lotar sua agenda de atendimentos</span>, aumentar seus preços gradativamente, vender sessões emergenciais de alto ticket e infoprodutos de baixo ticket, com todo o suporte de marketing e automação.
             </p>
           </CardContent>
         </Card>
@@ -275,7 +275,7 @@ const PropostaWinnie = () => {
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                Contrato de <span className="text-foreground font-medium">6 meses</span>, cancelamento sem multa com aviso prévio de 30 dias.
+                Contrato de <span className="text-foreground font-medium">6 meses com renovação automática</span>, cancelamento sem multa com aviso prévio de 30 dias. Toda a infraestrutura digital (site, landing pages, automações) é <span className="text-primary font-medium">propriedade da AdHubMarketing</span>.
               </p>
             </CardContent>
           </Card>
