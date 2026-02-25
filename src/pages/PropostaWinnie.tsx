@@ -91,7 +91,7 @@ const PropostaWinnie = () => {
                     <TableCell className="font-medium text-sm">Consulta Individual</TableCell>
                     <TableCell className="text-right text-sm text-muted-foreground">R$ 150,00</TableCell>
                     <TableCell className="text-right text-sm text-primary font-semibold">R$ 200,00</TableCell>
-                    <TableCell className="text-right text-sm text-accent font-semibold">R$ 50,00</TableCell>
+                    <TableCell className="text-right text-sm text-accent font-semibold">R$ 50,00 (25%)</TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell className="font-medium text-sm">Pacote 4 Sessões</TableCell>
@@ -99,13 +99,19 @@ const PropostaWinnie = () => {
                     <TableCell className="text-right text-sm text-primary font-semibold">R$ 720,00</TableCell>
                     <TableCell className="text-right text-sm text-accent font-semibold">R$ 180,00 (25%)</TableCell>
                   </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium text-sm">Atendimento Emergencial</TableCell>
+                    <TableCell className="text-right text-sm text-muted-foreground">—</TableCell>
+                    <TableCell className="text-right text-sm text-primary font-semibold">R$ 500,00</TableCell>
+                    <TableCell className="text-right text-sm text-accent font-semibold">R$ 125,00 (25%)</TableCell>
+                  </TableRow>
                 </TableBody>
               </Table>
             </div>
             <div className="flex flex-col gap-1.5 text-sm">
               <div className="flex items-start gap-2">
                 <CheckCircle className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />
-                <span className="text-muted-foreground"><span className="text-foreground font-medium">Mensalidade fixa:</span> R$ 1.000,00/mês + percentual sobre acréscimo nas vendas</span>
+                <span className="text-muted-foreground"><span className="text-foreground font-medium">Mensalidade fixa:</span> R$ 1.000,00/mês + <span className="text-primary font-medium">25%</span> sobre o acréscimo entre valores antigos e novos + novos produtos</span>
               </div>
               <div className="flex items-start gap-2">
                 <Eye className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />
