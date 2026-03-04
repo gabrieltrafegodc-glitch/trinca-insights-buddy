@@ -11,6 +11,7 @@ import logoAdhub from "@/assets/logo-adhub.jpeg";
 import logoWinnie from "@/assets/logo-winnie.avif";
 
 const PropostaWinnie = () => {
+  document.title = "Proposta Winnie — AD HUB Marketing";
   return (
     <div className="min-h-screen bg-background relative">
       {/* Glow effect */}
