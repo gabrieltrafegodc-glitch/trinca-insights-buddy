@@ -4,6 +4,7 @@ import { campaignsByMonth } from "@/data/campaigns";
 import logoAdhub from "@/assets/logo-adhub.jpeg";
 
 const Index = () => {
+  document.title = "Relatório Trinca Bar — AD HUB Marketing";
   return (
     <div className="min-h-screen bg-background relative">
       <div className="container max-w-5xl mx-auto px-4 py-12 md:py-20">

@@ -11,6 +11,7 @@ import logoAdhub from "@/assets/logo-adhub.jpeg";
 import logoCasaDom from "@/assets/logo-casadom.avif";
 
 const PropostaCasaDom = () => {
+  document.title = "Proposta Casa DOM — AD HUB Marketing";
   return (
     <div className="min-h-screen bg-background relative">
       {/* Glow effect */}
