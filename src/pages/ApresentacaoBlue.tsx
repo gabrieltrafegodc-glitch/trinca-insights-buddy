@@ -348,7 +348,7 @@ const slides = [
   /* ── 10  COMPARAÇÃO ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-16 max-w-4xl mx-auto">
-      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 10</p>
+      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 11</p>
       <h2 className="text-3xl font-extrabold mb-6" style={{ color: blue.text }}>Comparação Financeira</h2>
       <div className="rounded-xl border overflow-hidden" style={{ background: blue.bgCard, borderColor: blue.border }}>
         {/* header */}
