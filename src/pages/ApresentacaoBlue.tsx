@@ -302,7 +302,7 @@ const slides = [
   /* ── 8  CENÁRIO 3: ECOSSISTEMA ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-16 max-w-4xl mx-auto">
-      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 08</p>
+      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 09</p>
       <h2 className="text-3xl font-extrabold mb-1" style={{ color: blue.text }}>Cenário 3 <span style={{ color: blue.accent }}>— Recomendado</span></h2>
       <p className="text-lg font-semibold mb-5" style={{ color: blue.textMuted }}>Ecossistema Próprio Blue Saúde</p>
       <div className="grid sm:grid-cols-2 gap-2.5">
