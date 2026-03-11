@@ -225,7 +225,7 @@ const slides = [
   /* ── 5  ESTRUTURA ATUAL ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-16 max-w-4xl mx-auto">
-      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 05</p>
+      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 06</p>
       <h2 className="text-3xl font-extrabold mb-2" style={{ color: blue.text }}>Estrutura Atual</h2>
       <p className="text-sm mb-6" style={{ color: blue.textMuted }}>Continuará funcionando durante a evolução do sistema</p>
       <div className="rounded-xl p-6 border mb-4" style={{ background: blue.bgCard, borderColor: blue.border }}>
