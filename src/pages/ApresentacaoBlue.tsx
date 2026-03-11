@@ -160,20 +160,57 @@ const slides = [
     </div>
   ),
 
-  /* ── 4  NOVA NECESSIDADE ── */
+  /* ── 4  PROJEÇÃO DE ESCALA ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-16 max-w-4xl mx-auto">
       <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 04</p>
+      <h2 className="text-3xl font-extrabold mb-2" style={{ color: blue.text }}>Projeção de Escala</h2>
+      <p className="text-sm mb-3 leading-relaxed" style={{ color: blue.textMuted }}>
+        Com os custos iniciais já conseguimos esse resultado. Ao decorrer, vamos <span style={{ color: blue.accent }}>otimizando e maximizando</span> o Retorno sobre o Investimento.
+      </p>
+      <p className="text-sm mb-6" style={{ color: blue.textMuted }}>
+        Com base no ROI comprovado de 6x, segue uma projeção com escala de verba:
+      </p>
+      <div className="space-y-4">
+        {[
+          { invest: "R$ 20k", fat: "R$ 120k", note: "Escala inicial" },
+          { invest: "R$ 50k", fat: "R$ 300k", note: "Crescimento acelerado" },
+          { invest: "R$ 100k", fat: "R$ 600k", note: "Abrir novas regiões e fechar novas parcerias" },
+        ].map((row, i) => (
+          <div key={i} className="grid grid-cols-3 items-center gap-4 rounded-xl p-4 border" style={{ background: i === 2 ? blue.accentGlow2 : blue.bgCard, borderColor: i === 2 ? blue.accent : blue.border }}>
+            <div>
+              <p className="text-xs" style={{ color: blue.textMuted }}>Investimento/mês</p>
+              <p className="text-xl font-extrabold" style={{ color: blue.text }}>{row.invest}</p>
+            </div>
+            <div className="text-center">
+              <p className="text-xs" style={{ color: blue.textMuted }}>Faturamento estimado</p>
+              <p className="text-xl font-extrabold" style={{ color: blue.green }}>{row.fat}</p>
+            </div>
+            <div className="text-right">
+              <p className="text-xs" style={{ color: i === 2 ? blue.accent : blue.textMuted }}>{row.note}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="mt-5 rounded-lg px-4 py-3 text-center" style={{ background: blue.bgCard }}>
+        <p className="text-sm font-semibold" style={{ color: blue.green }}>✦ Quanto maior a verba, maior o retorno — com otimização contínua.</p>
+      </div>
+    </div>
+  ),
+
+  /* ── 5  NOVA NECESSIDADE ── */
+  () => (
+    <div className="flex flex-col justify-center h-full px-8 md:px-16 max-w-4xl mx-auto">
+      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 05</p>
       <h2 className="text-3xl font-extrabold mb-2" style={{ color: blue.text }}>Nova Necessidade da Blue</h2>
       <p className="text-sm mb-6" style={{ color: blue.textMuted }}>Desafios atuais da operação comercial</p>
       <div className="grid sm:grid-cols-2 gap-3">
         {[
-          { icon: Building2, text: "Dois escritórios com ~100 mil disparos/mês" },
+          { icon: Building2, text: "Dois escritórios com ~100 mil disparos/mês (Custo de API oficial fica inviável)" },
           { icon: MessageSquare, text: "WhatsApp unificado para toda operação" },
           { icon: Target, text: "Prospecção ativa para empresas" },
-          { icon: Briefcase, text: "Segmentação por CNAE" },
           { icon: Layers, text: "Integração de setores internos" },
-          { icon: BarChart3, text: "Relatórios de performance" },
+          { icon: BarChart3, text: "Relatórios de performance v2 com performance por corretor" },
           { icon: Users, text: "Gestão estruturada de leads e corretores" },
         ].map((item, i) => (
           <div key={i} className="flex items-center gap-3 rounded-lg p-3 border" style={{ background: blue.bgCard, borderColor: blue.border }}>
@@ -188,7 +225,7 @@ const slides = [
   /* ── 5  ESTRUTURA ATUAL ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-16 max-w-4xl mx-auto">
-      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 05</p>
+      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 06</p>
       <h2 className="text-3xl font-extrabold mb-2" style={{ color: blue.text }}>Estrutura Atual</h2>
       <p className="text-sm mb-6" style={{ color: blue.textMuted }}>Continuará funcionando durante a evolução do sistema</p>
       <div className="rounded-xl p-6 border mb-4" style={{ background: blue.bgCard, borderColor: blue.border }}>
@@ -212,7 +249,7 @@ const slides = [
   /* ── 6  CENÁRIO 1 ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-16 max-w-4xl mx-auto">
-      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 06</p>
+      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 07</p>
       <h2 className="text-3xl font-extrabold mb-2" style={{ color: blue.text }}>Cenário 1</h2>
       <p className="text-lg font-semibold mb-6" style={{ color: blue.textMuted }}>Manter Estrutura Atual</p>
       <div className="rounded-xl p-6 border mb-6" style={{ background: blue.bgCard, borderColor: blue.border }}>
@@ -241,7 +278,7 @@ const slides = [
   /* ── 7  CENÁRIO 2: IMPULSEFY ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-16 max-w-4xl mx-auto">
-      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 07</p>
+      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 08</p>
       <h2 className="text-3xl font-extrabold mb-2" style={{ color: blue.text }}>Cenário 2</h2>
       <p className="text-lg font-semibold mb-6" style={{ color: blue.textMuted }}>Migração para Impulsefy</p>
       <p className="text-sm mb-5" style={{ color: blue.textMuted }}>Alternativa com ferramenta externa</p>
@@ -265,7 +302,7 @@ const slides = [
   /* ── 8  CENÁRIO 3: ECOSSISTEMA ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-16 max-w-4xl mx-auto">
-      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 08</p>
+      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 09</p>
       <h2 className="text-3xl font-extrabold mb-1" style={{ color: blue.text }}>Cenário 3 <span style={{ color: blue.accent }}>— Recomendado</span></h2>
       <p className="text-lg font-semibold mb-5" style={{ color: blue.textMuted }}>Ecossistema Próprio Blue Saúde</p>
       <div className="grid sm:grid-cols-2 gap-2.5">
@@ -274,14 +311,12 @@ const slides = [
           "WhatsApp unificado",
           "Integração Instagram e Facebook",
           "Gestão de setores da empresa",
-          "Relatórios de performance",
+          "Relatórios de performance v2 por corretor",
           "Disparador para prospecção ativa",
-          "Segmentação por CNAE",
           "Automação de atendimento",
           "Nutrição de leads",
           "Pós-venda e feedback",
           "Distribuição de leads para corretores",
-          "Geração de propostas com IA",
         ].map((t, i) => (
           <div key={i} className="flex items-center gap-2 rounded-lg p-2.5 border text-sm" style={{ background: blue.bgCard, borderColor: blue.border, color: blue.text }}>
             <CheckCircle className="w-3.5 h-3.5 shrink-0" style={{ color: blue.green }} />
@@ -295,7 +330,7 @@ const slides = [
   /* ── 9  INVESTIMENTO ECOSSISTEMA ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-16 max-w-4xl mx-auto text-center">
-      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 09</p>
+      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 10</p>
       <h2 className="text-3xl font-extrabold mb-8" style={{ color: blue.text }}>Investimento — Ecossistema Blue</h2>
       <div className="grid sm:grid-cols-3 gap-4 mb-6">
         <Metric label="Implementação" value="R$ 8k" accent />
@@ -313,7 +348,7 @@ const slides = [
   /* ── 10  COMPARAÇÃO ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-16 max-w-4xl mx-auto">
-      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 10</p>
+      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 11</p>
       <h2 className="text-3xl font-extrabold mb-6" style={{ color: blue.text }}>Comparação Financeira</h2>
       <div className="rounded-xl border overflow-hidden" style={{ background: blue.bgCard, borderColor: blue.border }}>
         {/* header */}
@@ -339,7 +374,7 @@ const slides = [
   /* ── 11  ONDE INVESTIR ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-16 max-w-4xl mx-auto text-center">
-      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 11</p>
+      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 12</p>
       <h2 className="text-3xl font-extrabold mb-2" style={{ color: blue.text }}>Onde Esse Dinheiro Poderia Estar?</h2>
       <p className="text-sm mb-8" style={{ color: blue.textMuted }}>Se os R$ 60k de economia forem investidos em tráfego (ROI comprovado ≈ 6x)</p>
       <div className="grid sm:grid-cols-2 gap-6 max-w-md mx-auto mb-6">
@@ -357,29 +392,37 @@ const slides = [
   /* ── 12  EXPANSÃO UNIMED ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-16 max-w-4xl mx-auto">
-      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 12</p>
+      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 13</p>
       <h2 className="text-3xl font-extrabold mb-6" style={{ color: blue.text }}>Expansão de Marketing — Unimed</h2>
-      <div className="grid sm:grid-cols-2 gap-4 mb-4">
-        <div className="rounded-xl p-5 border" style={{ background: blue.bgCard, borderColor: blue.border }}>
-          <p className="text-xs mb-1" style={{ color: blue.textMuted }}>Estrutura atual</p>
-          <p className="text-2xl font-extrabold" style={{ color: blue.text }}>R$ 7.999<span className="text-sm font-normal" style={{ color: blue.textMuted }}>/mês</span></p>
-          <p className="text-xs mt-1" style={{ color: blue.textMuted }}>Desconto de R$ 1.000 ref. automações</p>
-        </div>
-        <div className="rounded-xl p-5 border" style={{ background: blue.bgCard, borderColor: blue.border }}>
-          <p className="text-xs mb-1" style={{ color: blue.textMuted }}>Novo valor base</p>
-          <p className="text-2xl font-extrabold" style={{ color: blue.text }}>R$ 6.999<span className="text-sm font-normal" style={{ color: blue.textMuted }}>/mês</span></p>
-        </div>
+      <div className="rounded-xl p-5 border mb-4" style={{ background: blue.bgCard, borderColor: blue.border }}>
+        <p className="text-xs mb-1" style={{ color: blue.textMuted }}>Estrutura atual</p>
+        <p className="text-2xl font-extrabold" style={{ color: blue.text }}>R$ 7.999<span className="text-sm font-normal" style={{ color: blue.textMuted }}>/mês</span></p>
       </div>
       <div className="flex items-center gap-4 justify-center mb-4">
         <div className="rounded-xl px-5 py-3 border text-center" style={{ background: blue.bgCard, borderColor: blue.border }}>
-          <p className="text-xs" style={{ color: blue.textMuted }}>Upgrade Unimed</p>
-          <p className="text-xl font-bold" style={{ color: blue.accent }}>+ R$ 4.000</p>
+          <p className="text-xs" style={{ color: blue.textMuted }}>Upgrade Unimed Instagram</p>
+          <p className="text-xs mt-1" style={{ color: blue.textMuted }}>Tudo que fazemos para Humana</p>
         </div>
         <ArrowRight className="w-5 h-5" style={{ color: blue.accent }} />
         <div className="rounded-xl px-5 py-3 border text-center" style={{ background: blue.accentGlow2, borderColor: blue.accent }}>
           <p className="text-xs" style={{ color: blue.textMuted }}>Novo total mensal</p>
-          <p className="text-xl font-bold" style={{ color: blue.accent }}>R$ 10.999</p>
+          <p className="text-2xl font-bold" style={{ color: blue.accent }}>R$ 11.999</p>
         </div>
+      </div>
+      <div className="rounded-xl p-5 border mb-4" style={{ background: blue.bgCard, borderColor: blue.border }}>
+        <div className="flex items-center gap-2 mb-2">
+          <Rocket className="w-4 h-4" style={{ color: blue.accent }} />
+          <span className="text-sm font-bold" style={{ color: blue.accent }}>Upgrade V2 Sistema</span>
+        </div>
+        <p className="text-sm" style={{ color: blue.text }}>
+          Setup: <span className="font-bold" style={{ color: blue.accent }}>R$ 8.000</span> em até 4 meses de implementação
+        </p>
+        <p className="text-xs mt-2" style={{ color: blue.textMuted }}>
+          A mensalidade de R$ 3.000 começa somente a partir da entrega da V2 completa.
+        </p>
+        <p className="text-xs mt-1" style={{ color: blue.textMuted }}>
+          Caso finalize antes do 3º ou 4º mês, inicia-se antes — após aprovação do Valdir e Clodoaldo.
+        </p>
       </div>
     </div>
   ),
@@ -387,7 +430,7 @@ const slides = [
   /* ── 13  ENTREGAS MARKETING ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-16 max-w-4xl mx-auto">
-      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 13</p>
+      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 14</p>
       <h2 className="text-3xl font-extrabold mb-2" style={{ color: blue.text }}>Entregas de Marketing</h2>
       <p className="text-sm mb-6" style={{ color: blue.textMuted }}>Para duas operações: <span style={{ color: blue.accent }}>Humana Saúde</span> e <span style={{ color: blue.accent }}>Unimed Maringá</span></p>
       <div className="grid sm:grid-cols-2 gap-3">
@@ -411,7 +454,7 @@ const slides = [
   /* ── 14  BÔNUS ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-16 max-w-4xl mx-auto text-center">
-      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 14</p>
+      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 15</p>
       <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border mb-4 mx-auto" style={{ background: blue.accentGlow, borderColor: blue.accent }}>
         <Award className="w-4 h-4" style={{ color: blue.gold }} />
         <span className="text-sm font-bold" style={{ color: blue.gold }}>Bônus Estratégico</span>
@@ -439,12 +482,12 @@ const slides = [
   /* ── 15  PRÓXIMOS PASSOS ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-16 max-w-4xl mx-auto">
-      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 15</p>
+      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 16</p>
       <h2 className="text-3xl font-extrabold mb-8" style={{ color: blue.text }}>Próximos Passos</h2>
-      <div className="space-y-4 mb-8">
+      <div className="space-y-4 mb-6">
         {[
           "Aprovação da estrutura proposta",
-          "Início da implementação do ecossistema Blue",
+          "Início da implementação do ecossistema Blue (V2)",
           "Ativação do marketing da Unimed",
           "Evolução da infraestrutura comercial nos próximos meses",
         ].map((step, i) => (
@@ -455,6 +498,10 @@ const slides = [
             <span className="text-sm font-medium" style={{ color: blue.text }}>{step}</span>
           </div>
         ))}
+      </div>
+      <div className="rounded-xl px-5 py-3 border mb-4" style={{ background: blue.bgCard, borderColor: blue.border }}>
+        <p className="text-xs font-bold mb-1" style={{ color: blue.gold }}>V3 — Futuro</p>
+        <p className="text-xs" style={{ color: blue.textMuted }}>Geração automática de propostas e fechamento — previsto para uma fase futura devido à complexidade e inúmeras tabelas.</p>
       </div>
       <div className="rounded-xl px-6 py-5 border text-center" style={{ background: blue.accentGlow, borderColor: blue.accent }}>
         <p className="text-lg font-bold" style={{ color: blue.accent }}>
