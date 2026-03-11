@@ -430,7 +430,7 @@ const slides = [
   /* ── 13  ENTREGAS MARKETING ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-16 max-w-4xl mx-auto">
-      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 13</p>
+      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 14</p>
       <h2 className="text-3xl font-extrabold mb-2" style={{ color: blue.text }}>Entregas de Marketing</h2>
       <p className="text-sm mb-6" style={{ color: blue.textMuted }}>Para duas operações: <span style={{ color: blue.accent }}>Humana Saúde</span> e <span style={{ color: blue.accent }}>Unimed Maringá</span></p>
       <div className="grid sm:grid-cols-2 gap-3">
