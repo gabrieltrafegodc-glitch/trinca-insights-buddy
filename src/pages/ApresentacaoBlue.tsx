@@ -391,37 +391,62 @@ const slides = [
 
   /* ── 12  EXPANSÃO UNIMED ── */
   () => (
-    <div className="flex flex-col justify-center h-full px-8 md:px-16 max-w-4xl mx-auto">
+    <div className="flex flex-col justify-center h-full px-8 md:px-16 max-w-5xl mx-auto">
       <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 13</p>
-      <h2 className="text-3xl font-extrabold mb-6" style={{ color: blue.text }}>Expansão de Marketing — Unimed</h2>
+      <h2 className="text-3xl font-extrabold mb-6" style={{ color: blue.text }}>Proposta Comercial</h2>
+
+      {/* Contrato Atual */}
       <div className="rounded-xl p-5 border mb-4" style={{ background: blue.bgCard, borderColor: blue.border }}>
-        <p className="text-xs mb-1" style={{ color: blue.textMuted }}>Estrutura atual</p>
-        <p className="text-2xl font-extrabold" style={{ color: blue.text }}>R$ 7.999<span className="text-sm font-normal" style={{ color: blue.textMuted }}>/mês</span></p>
-      </div>
-      <div className="flex items-center gap-4 justify-center mb-4">
-        <div className="rounded-xl px-5 py-3 border text-center" style={{ background: blue.bgCard, borderColor: blue.border }}>
-          <p className="text-xs" style={{ color: blue.textMuted }}>Upgrade Unimed Instagram</p>
-          <p className="text-xs mt-1" style={{ color: blue.textMuted }}>Tudo que fazemos para Humana</p>
-        </div>
-        <ArrowRight className="w-5 h-5" style={{ color: blue.accent }} />
-        <div className="rounded-xl px-5 py-3 border text-center" style={{ background: blue.accentGlow2, borderColor: blue.accent }}>
-          <p className="text-xs" style={{ color: blue.textMuted }}>Novo total mensal</p>
-          <p className="text-2xl font-bold" style={{ color: blue.accent }}>R$ 11.999</p>
+        <p className="text-xs font-bold tracking-wider mb-3" style={{ color: blue.accent }}>CONTRATO ATUAL — R$ 7.999,00/mês</p>
+        <div className="grid sm:grid-cols-2 gap-3">
+          <div className="rounded-lg p-3 border" style={{ background: blue.bg, borderColor: blue.border }}>
+            <p className="text-lg font-bold" style={{ color: blue.text }}>R$ 6.999</p>
+            <p className="text-xs" style={{ color: blue.textMuted }}>Tráfego, LP, vídeos, roteiros, design e social media</p>
+          </div>
+          <div className="rounded-lg p-3 border" style={{ background: blue.bg, borderColor: blue.border }}>
+            <p className="text-lg font-bold" style={{ color: blue.text }}>R$ 1.000</p>
+            <p className="text-xs" style={{ color: blue.textMuted }}>Gestão e hospedagem de agentes e automações</p>
+          </div>
         </div>
       </div>
-      <div className="rounded-xl p-5 border mb-4" style={{ background: blue.bgCard, borderColor: blue.border }}>
-        <div className="flex items-center gap-2 mb-2">
-          <Rocket className="w-4 h-4" style={{ color: blue.accent }} />
-          <span className="text-sm font-bold" style={{ color: blue.accent }}>Upgrade V2 Sistema</span>
+
+      {/* Upgrades */}
+      <div className="grid sm:grid-cols-2 gap-4 mb-4">
+        {/* Upgrade Marketing */}
+        <div className="rounded-xl p-5 border" style={{ background: blue.accentGlow2, borderColor: blue.accent }}>
+          <div className="flex items-center gap-2 mb-2">
+            <TrendingUp className="w-4 h-4" style={{ color: blue.accent }} />
+            <span className="text-sm font-bold" style={{ color: blue.accent }}>Upgrade Marketing — Unimed</span>
+          </div>
+          <p className="text-2xl font-extrabold mb-1" style={{ color: blue.text }}>+ R$ 4.000<span className="text-sm font-normal" style={{ color: blue.textMuted }}>/mês</span></p>
+          <p className="text-xs" style={{ color: blue.textMuted }}>Tráfego, LP, vídeos, roteiros, design e social media para Unimed — mesmo escopo da Humana.</p>
+          <div className="mt-3 pt-3 border-t" style={{ borderColor: blue.border }}>
+            <p className="text-xs" style={{ color: blue.textMuted }}>Novo total marketing</p>
+            <p className="text-xl font-bold" style={{ color: blue.accent }}>R$ 11.999<span className="text-sm font-normal" style={{ color: blue.textMuted }}>/mês</span></p>
+          </div>
         </div>
+
+        {/* Upgrade V2 Sistema */}
+        <div className="rounded-xl p-5 border" style={{ background: blue.bgCard, borderColor: blue.border }}>
+          <div className="flex items-center gap-2 mb-2">
+            <Rocket className="w-4 h-4" style={{ color: blue.accent }} />
+            <span className="text-sm font-bold" style={{ color: blue.accent }}>Upgrade V2 — Sistema</span>
+          </div>
+          <p className="text-2xl font-extrabold mb-1" style={{ color: blue.text }}>R$ 8.000<span className="text-sm font-normal" style={{ color: blue.textMuted }}> setup</span></p>
+          <p className="text-xs" style={{ color: blue.textMuted }}>Parcelável em até 4 meses (período de implementação).</p>
+          <div className="mt-3 pt-3 border-t" style={{ borderColor: blue.border }}>
+            <p className="text-xs" style={{ color: blue.textMuted }}>Mensalidade automações</p>
+            <p className="text-sm" style={{ color: blue.text }}>De R$ 1.000 → <span className="font-bold" style={{ color: blue.accent }}>R$ 3.000/mês</span></p>
+            <p className="text-xs mt-1" style={{ color: blue.textMuted }}>Inicia somente após a entrega final da V2. Caso finalize antes, inicia-se imediatamente.</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Fee de mídia */}
+      <div className="rounded-xl p-4 border flex items-center gap-3" style={{ background: blue.accentGlow, borderColor: blue.accent }}>
+        <DollarSign className="w-5 h-5 shrink-0" style={{ color: blue.gold }} />
         <p className="text-sm" style={{ color: blue.text }}>
-          Setup: <span className="font-bold" style={{ color: blue.accent }}>R$ 8.000</span> em até 4 meses de implementação
-        </p>
-        <p className="text-xs mt-2" style={{ color: blue.textMuted }}>
-          A mensalidade de R$ 3.000 começa somente a partir da entrega da V2 completa.
-        </p>
-        <p className="text-xs mt-1" style={{ color: blue.textMuted }}>
-          Caso finalize antes do 3º ou 4º mês, inicia-se antes — após aprovação do Valdir e Clodoaldo.
+          Mantém-se o <span className="font-bold" style={{ color: blue.gold }}>fee de 10%</span> sobre o investimento em mídia conforme contrato vigente.
         </p>
       </div>
     </div>
