@@ -160,20 +160,57 @@ const slides = [
     </div>
   ),
 
-  /* ── 4  NOVA NECESSIDADE ── */
+  /* ── 4  PROJEÇÃO DE ESCALA ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-16 max-w-4xl mx-auto">
       <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 04</p>
+      <h2 className="text-3xl font-extrabold mb-2" style={{ color: blue.text }}>Projeção de Escala</h2>
+      <p className="text-sm mb-3 leading-relaxed" style={{ color: blue.textMuted }}>
+        Com os custos iniciais já conseguimos esse resultado. Ao decorrer, vamos <span style={{ color: blue.accent }}>otimizando e maximizando</span> o Retorno sobre o Investimento.
+      </p>
+      <p className="text-sm mb-6" style={{ color: blue.textMuted }}>
+        Com base no ROI comprovado de 6x, segue uma projeção com escala de verba:
+      </p>
+      <div className="space-y-4">
+        {[
+          { invest: "R$ 20k", fat: "R$ 120k", note: "Escala inicial" },
+          { invest: "R$ 50k", fat: "R$ 300k", note: "Crescimento acelerado" },
+          { invest: "R$ 100k", fat: "R$ 600k", note: "Abrir novas regiões e fechar novas parcerias" },
+        ].map((row, i) => (
+          <div key={i} className="grid grid-cols-3 items-center gap-4 rounded-xl p-4 border" style={{ background: i === 2 ? blue.accentGlow2 : blue.bgCard, borderColor: i === 2 ? blue.accent : blue.border }}>
+            <div>
+              <p className="text-xs" style={{ color: blue.textMuted }}>Investimento/mês</p>
+              <p className="text-xl font-extrabold" style={{ color: blue.text }}>{row.invest}</p>
+            </div>
+            <div className="text-center">
+              <p className="text-xs" style={{ color: blue.textMuted }}>Faturamento estimado</p>
+              <p className="text-xl font-extrabold" style={{ color: blue.green }}>{row.fat}</p>
+            </div>
+            <div className="text-right">
+              <p className="text-xs" style={{ color: i === 2 ? blue.accent : blue.textMuted }}>{row.note}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="mt-5 rounded-lg px-4 py-3 text-center" style={{ background: blue.bgCard }}>
+        <p className="text-sm font-semibold" style={{ color: blue.green }}>✦ Quanto maior a verba, maior o retorno — com otimização contínua.</p>
+      </div>
+    </div>
+  ),
+
+  /* ── 5  NOVA NECESSIDADE ── */
+  () => (
+    <div className="flex flex-col justify-center h-full px-8 md:px-16 max-w-4xl mx-auto">
+      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 05</p>
       <h2 className="text-3xl font-extrabold mb-2" style={{ color: blue.text }}>Nova Necessidade da Blue</h2>
       <p className="text-sm mb-6" style={{ color: blue.textMuted }}>Desafios atuais da operação comercial</p>
       <div className="grid sm:grid-cols-2 gap-3">
         {[
-          { icon: Building2, text: "Dois escritórios com ~100 mil disparos/mês" },
+          { icon: Building2, text: "Dois escritórios com ~100 mil disparos/mês (Custo de API oficial fica inviável)" },
           { icon: MessageSquare, text: "WhatsApp unificado para toda operação" },
           { icon: Target, text: "Prospecção ativa para empresas" },
-          { icon: Briefcase, text: "Segmentação por CNAE" },
           { icon: Layers, text: "Integração de setores internos" },
-          { icon: BarChart3, text: "Relatórios de performance" },
+          { icon: BarChart3, text: "Relatórios de performance v2 com performance por corretor" },
           { icon: Users, text: "Gestão estruturada de leads e corretores" },
         ].map((item, i) => (
           <div key={i} className="flex items-center gap-3 rounded-lg p-3 border" style={{ background: blue.bgCard, borderColor: blue.border }}>
