@@ -330,7 +330,7 @@ const slides = [
   /* ── 9  INVESTIMENTO ECOSSISTEMA ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-16 max-w-4xl mx-auto text-center">
-      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 09</p>
+      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 10</p>
       <h2 className="text-3xl font-extrabold mb-8" style={{ color: blue.text }}>Investimento — Ecossistema Blue</h2>
       <div className="grid sm:grid-cols-3 gap-4 mb-6">
         <Metric label="Implementação" value="R$ 8k" accent />
