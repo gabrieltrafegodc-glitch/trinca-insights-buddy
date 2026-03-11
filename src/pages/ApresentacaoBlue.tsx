@@ -3,7 +3,7 @@ import {
   ChevronLeft, ChevronRight, TrendingUp, DollarSign, BarChart3, Zap,
   Target, CheckCircle, ArrowRight, Building2, Users, MessageSquare,
   Bot, Layers, ShieldCheck, Rocket, Globe, PieChart, Award, Briefcase,
-  Monitor, Phone, Mail, Clock, ArrowUpRight, Minus
+  Monitor, Phone, Mail, Clock, ArrowUpRight, Minus, PenTool
 } from "lucide-react";
 import logoAdhub from "@/assets/logo-adhub.jpeg";
 import logoBlue from "@/assets/logo-blue.png";
