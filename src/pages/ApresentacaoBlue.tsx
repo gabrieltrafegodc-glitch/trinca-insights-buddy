@@ -374,7 +374,7 @@ const slides = [
   /* ── 11  ONDE INVESTIR ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-16 max-w-4xl mx-auto text-center">
-      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 11</p>
+      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 12</p>
       <h2 className="text-3xl font-extrabold mb-2" style={{ color: blue.text }}>Onde Esse Dinheiro Poderia Estar?</h2>
       <p className="text-sm mb-8" style={{ color: blue.textMuted }}>Se os R$ 60k de economia forem investidos em tráfego (ROI comprovado ≈ 6x)</p>
       <div className="grid sm:grid-cols-2 gap-6 max-w-md mx-auto mb-6">
