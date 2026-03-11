@@ -482,12 +482,12 @@ const slides = [
   /* ── 15  PRÓXIMOS PASSOS ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-16 max-w-4xl mx-auto">
-      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 15</p>
+      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 16</p>
       <h2 className="text-3xl font-extrabold mb-8" style={{ color: blue.text }}>Próximos Passos</h2>
-      <div className="space-y-4 mb-8">
+      <div className="space-y-4 mb-6">
         {[
           "Aprovação da estrutura proposta",
-          "Início da implementação do ecossistema Blue",
+          "Início da implementação do ecossistema Blue (V2)",
           "Ativação do marketing da Unimed",
           "Evolução da infraestrutura comercial nos próximos meses",
         ].map((step, i) => (
@@ -498,6 +498,10 @@ const slides = [
             <span className="text-sm font-medium" style={{ color: blue.text }}>{step}</span>
           </div>
         ))}
+      </div>
+      <div className="rounded-xl px-5 py-3 border mb-4" style={{ background: blue.bgCard, borderColor: blue.border }}>
+        <p className="text-xs font-bold mb-1" style={{ color: blue.gold }}>V3 — Futuro</p>
+        <p className="text-xs" style={{ color: blue.textMuted }}>Geração automática de propostas e fechamento — previsto para uma fase futura devido à complexidade e inúmeras tabelas.</p>
       </div>
       <div className="rounded-xl px-6 py-5 border text-center" style={{ background: blue.accentGlow, borderColor: blue.accent }}>
         <p className="text-lg font-bold" style={{ color: blue.accent }}>
