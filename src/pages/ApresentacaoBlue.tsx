@@ -278,7 +278,7 @@ const slides = [
   /* ── 7  CENÁRIO 2: IMPULSEFY ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-16 max-w-4xl mx-auto">
-      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 07</p>
+      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 08</p>
       <h2 className="text-3xl font-extrabold mb-2" style={{ color: blue.text }}>Cenário 2</h2>
       <p className="text-lg font-semibold mb-6" style={{ color: blue.textMuted }}>Migração para Impulsefy</p>
       <p className="text-sm mb-5" style={{ color: blue.textMuted }}>Alternativa com ferramenta externa</p>
