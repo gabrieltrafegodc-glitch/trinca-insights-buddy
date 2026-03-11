@@ -454,7 +454,7 @@ const slides = [
   /* ── 14  BÔNUS ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-16 max-w-4xl mx-auto text-center">
-      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 14</p>
+      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 15</p>
       <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border mb-4 mx-auto" style={{ background: blue.accentGlow, borderColor: blue.accent }}>
         <Award className="w-4 h-4" style={{ color: blue.gold }} />
         <span className="text-sm font-bold" style={{ color: blue.gold }}>Bônus Estratégico</span>
