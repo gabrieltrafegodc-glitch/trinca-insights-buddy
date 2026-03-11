@@ -311,14 +311,12 @@ const slides = [
           "WhatsApp unificado",
           "Integração Instagram e Facebook",
           "Gestão de setores da empresa",
-          "Relatórios de performance",
+          "Relatórios de performance v2 por corretor",
           "Disparador para prospecção ativa",
-          "Segmentação por CNAE",
           "Automação de atendimento",
           "Nutrição de leads",
           "Pós-venda e feedback",
           "Distribuição de leads para corretores",
-          "Geração de propostas com IA",
         ].map((t, i) => (
           <div key={i} className="flex items-center gap-2 rounded-lg p-2.5 border text-sm" style={{ background: blue.bgCard, borderColor: blue.border, color: blue.text }}>
             <CheckCircle className="w-3.5 h-3.5 shrink-0" style={{ color: blue.green }} />
