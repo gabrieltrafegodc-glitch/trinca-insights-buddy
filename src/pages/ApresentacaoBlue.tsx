@@ -249,7 +249,7 @@ const slides = [
   /* ── 6  CENÁRIO 1 ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-16 max-w-4xl mx-auto">
-      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 06</p>
+      <p className="text-xs font-bold tracking-widest mb-2" style={{ color: blue.accent }}>SLIDE 07</p>
       <h2 className="text-3xl font-extrabold mb-2" style={{ color: blue.text }}>Cenário 1</h2>
       <p className="text-lg font-semibold mb-6" style={{ color: blue.textMuted }}>Manter Estrutura Atual</p>
       <div className="rounded-xl p-6 border mb-6" style={{ background: blue.bgCard, borderColor: blue.border }}>
