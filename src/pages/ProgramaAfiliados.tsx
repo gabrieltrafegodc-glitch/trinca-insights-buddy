@@ -1066,7 +1066,7 @@ const slides = [
     </div>
   ),
 
-  /* ── SLIDE 25 — RESUMO FINAL ── */
+  /* ── SLIDE 26 — RESUMO FINAL ── */
   () => (
     <div className="flex flex-col items-center justify-center h-full px-8 md:px-20 max-w-5xl mx-auto text-center relative overflow-hidden">
       {/* Background glow */}
