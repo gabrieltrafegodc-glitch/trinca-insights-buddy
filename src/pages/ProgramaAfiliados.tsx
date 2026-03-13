@@ -1011,10 +1011,10 @@ const slides = [
     </div>
   ),
 
-  /* ── SLIDE 23 — RISCOS ── */
+  /* ── SLIDE 24 — RISCOS ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-20 max-w-6xl mx-auto">
-      <SlideTitle num={23} title="Riscos e Mitigações" sub="Transparência" />
+      <SlideTitle num={24} title="Riscos e Mitigações" sub="Transparência" />
       <div className="grid md:grid-cols-2 gap-5">
         {[
           { risk: "Abuso de previews", solution: "Sub-afiliado paga R$ 30/prévia — controle natural + limites diários", icon: Shield },
