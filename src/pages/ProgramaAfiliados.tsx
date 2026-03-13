@@ -982,10 +982,10 @@ const slides = [
     </div>
   ),
 
-  /* ── SLIDE 22 — TIERS ── */
+  /* ── SLIDE 23 — TIERS ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-20 max-w-6xl mx-auto">
-      <SlideTitle num={22} title="Níveis de Progressão" sub="Tiers" />
+      <SlideTitle num={23} title="Níveis de Progressão" sub="Tiers" />
       <div className="grid md:grid-cols-3 gap-6">
         {[
           { tier: "Starter", color: c.textMuted, icon: UserPlus, items: ["Acesso básico", "Limite de prévias/dia", `Comissão padrão (${COMISSOES.sub}%)`, "Treinamento inicial"] },
