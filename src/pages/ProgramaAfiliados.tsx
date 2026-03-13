@@ -795,10 +795,10 @@ const slides = [
     );
   },
 
-  /* ── SLIDE 17 — CUSTO DAS PRÉVIAS ── */
+  /* ── SLIDE 18 — CUSTO DAS PRÉVIAS ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-20 max-w-6xl mx-auto">
-      <SlideTitle num={17} title="Custo das Prévias" sub="Sustentabilidade" />
+      <SlideTitle num={18} title="Custo das Prévias" sub="Sustentabilidade" />
       <div className="grid md:grid-cols-2 gap-8">
         <div>
           <BulletList icon={DollarSign} items={[
