@@ -908,10 +908,10 @@ const slides = [
     </div>
   ),
 
-  /* ── SLIDE 20 — SUB-AFILIADO ── */
+  /* ── SLIDE 21 — SUB-AFILIADO ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-20 max-w-6xl mx-auto">
-      <SlideTitle num={20} title="O que o Sub-afiliado Ganha" sub="Vendedor na Ponta" />
+      <SlideTitle num={21} title="O que o Sub-afiliado Ganha" sub="Vendedor na Ponta" />
       <div className="grid md:grid-cols-2 gap-8">
         <div className="space-y-5">
           <div className="rounded-2xl p-6 border" style={{ background: c.greenGlow, borderColor: `${c.green}18` }}>
