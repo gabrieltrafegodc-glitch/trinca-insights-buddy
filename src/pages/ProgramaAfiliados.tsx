@@ -841,10 +841,10 @@ const slides = [
     </div>
   ),
 
-  /* ── SLIDE 18 — DIRETOR GANHA EM VOLUME ── */
+  /* ── SLIDE 19 — DIRETOR GANHA EM VOLUME ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-20 max-w-6xl mx-auto">
-      <SlideTitle num={18} title="Por que o Diretor Ganha Mais" sub="Volume e Escala" />
+      <SlideTitle num={19} title="Por que o Diretor Ganha Mais" sub="Volume e Escala" />
       <div className="grid md:grid-cols-2 gap-8">
         <div>
           <BulletList icon={TrendingUp} color={c.gold} items={[
@@ -855,10 +855,10 @@ const slides = [
           ]} />
         </div>
         <div className="space-y-5">
-          <Metric label="50 Criadores sob gestão" value="↓" color={c.gold} />
-          <Metric label="2.000 Vendedores na rede" value="↓" color={c.orange} />
-          <Metric label="50.000 Clientes ativos" value="↓" color={c.green} />
-          <Metric label="Override do Diretor" value={`R$ ${(50000 * MRR_MEDIO * COMISSOES.diretor / 100).toLocaleString("pt-BR")}/mês`} color={c.gold} large />
+          <Metric label="10 Criadores sob gestão" value="↓" color={c.gold} />
+          <Metric label="200 Vendedores na rede" value="↓" color={c.orange} />
+          <Metric label="5.000 Clientes ativos" value="↓" color={c.green} />
+          <Metric label="Override do Diretor" value={`R$ ${(5000 * MRR_MEDIO * COMISSOES.diretor / 100).toLocaleString("pt-BR")}/mês`} color={c.gold} large />
         </div>
       </div>
     </div>
