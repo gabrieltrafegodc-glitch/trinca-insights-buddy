@@ -644,52 +644,56 @@ const slides = [
     );
   },
 
-  /* ── SLIDE 15 — PROJEÇÕES MACRO 10K ── */
+  /* ── SLIDE 15 — PROJEÇÕES REALISTAS (Curto Prazo) ── */
   () => {
-    const data = [
-      { cenario: "5 vendas", clientes: 50000, mrr: 50000 * MRR_MEDIO },
-      { cenario: "6 vendas", clientes: 60000, mrr: 60000 * MRR_MEDIO },
-      { cenario: "7 vendas", clientes: 70000, mrr: 70000 * MRR_MEDIO },
-      { cenario: "10 vendas", clientes: 100000, mrr: 100000 * MRR_MEDIO },
-    ].map(d => ({
-      ...d,
-      ponta: d.mrr * COMISSOES.sub / 100,
-      criador: d.mrr * COMISSOES.criador / 100,
-      diretor: d.mrr * COMISSOES.diretor / 100,
-      adhub: d.mrr * COMISSOES.adhub / 100,
-    }));
+    const nearTermData = [
+      { cenario: "50 vendedores", vendedores: 50, vendasMes: 5 },
+      { cenario: "100 vendedores", vendedores: 100, vendasMes: 5 },
+      { cenario: "200 vendedores", vendedores: 200, vendasMes: 5 },
+      { cenario: "500 vendedores", vendedores: 500, vendasMes: 5 },
+    ].map(d => {
+      const clientes = d.vendedores * d.vendasMes;
+      const mrr = clientes * MRR_MEDIO;
+      return {
+        ...d, clientes, mrr,
+        ponta: mrr * COMISSOES.sub / 100,
+        criador: mrr * COMISSOES.criador / 100,
+        diretor: mrr * COMISSOES.diretor / 100,
+        adhub: mrr * COMISSOES.adhub / 100,
+      };
+    });
 
-    const chartData = data.map(d => ({
-      name: d.cenario,
-      "Sub-afiliados": +(d.ponta / 1e6).toFixed(1),
-      Diretores: +(d.diretor / 1e6).toFixed(1),
-      Criadores: +(d.criador / 1e6).toFixed(1),
-      AdHub: +(d.adhub / 1e6).toFixed(1),
+    const chartData = nearTermData.map(d => ({
+      name: d.cenario.replace(" vendedores", ""),
+      "Sub-afiliados": +(d.ponta / 1e3).toFixed(0),
+      Diretores: +(d.diretor / 1e3).toFixed(0),
+      Criadores: +(d.criador / 1e3).toFixed(0),
+      AdHub: +(d.adhub / 1e3).toFixed(0),
     }));
 
     return (
       <div className="flex flex-col justify-center h-full px-8 md:px-20 max-w-6xl mx-auto">
-        <SlideTitle num={15} title="Projeções Macro — 10.000 Vendedores" sub="Escala" />
+        <SlideTitle num={15} title="Projeções Realistas — Curto Prazo" sub="Primeiros 6–12 Meses" />
         <p className="text-[12px] mb-4" style={{ color: c.textMuted }}>
-          MRR médio: R$ {MRR_MEDIO}/cliente. Valores = <strong style={{ color: c.text }}>novo MRR do mês</strong>. MRR acumulado cresce com base ativa (– churn).
+          MRR médio: R$ {MRR_MEDIO}/cliente · 5 vendas/vendedor/mês · Valores = <strong style={{ color: c.text }}>novo MRR mensal</strong>
         </p>
         <div className="grid md:grid-cols-2 gap-6">
           <DataTable
-            headers={["Cenário", "Novos Clientes", "Novo MRR", `Diretor ${COMISSOES.diretor}%`, `Ponta ${COMISSOES.sub}%`]}
-            rows={data.map(d => [
-              d.cenario + "/mês",
+            headers={["Rede", "Novos Clientes/mês", "Novo MRR", `Diretor ${COMISSOES.diretor}%`, `Ponta ${COMISSOES.sub}%`]}
+            rows={nearTermData.map(d => [
+              d.cenario,
               d.clientes.toLocaleString("pt-BR"),
-              `R$ ${(d.mrr / 1e6).toFixed(1)}M`,
-              `R$ ${(d.diretor / 1e6).toFixed(1)}M`,
-              `R$ ${(d.ponta / 1e6).toFixed(1)}M`,
+              `R$ ${(d.mrr / 1e3).toFixed(0)}K`,
+              `R$ ${(d.diretor / 1e3).toFixed(0)}K`,
+              `R$ ${(d.ponta / 1e3).toFixed(0)}K`,
             ])}
           />
           <ResponsiveContainer width="100%" height={240}>
             <BarChart data={chartData}>
               <CartesianGrid strokeDasharray="3 3" stroke={c.border} />
               <XAxis dataKey="name" tick={{ fill: c.textMuted, fontSize: 11 }} />
-              <YAxis tick={{ fill: c.textMuted, fontSize: 11 }} tickFormatter={v => `${v}M`} />
-              <Tooltip formatter={(v: number) => `R$ ${v.toFixed(1)}M`}
+              <YAxis tick={{ fill: c.textMuted, fontSize: 11 }} tickFormatter={v => `R$${v}K`} />
+              <Tooltip formatter={(v: number) => `R$ ${v}K`}
                 contentStyle={{ background: c.bgCard, border: `1px solid ${c.border}`, borderRadius: 12, color: c.text }} />
               <Bar dataKey="Diretores" fill={c.gold} stackId="a" />
               <Bar dataKey="Criadores" fill={c.green} stackId="a" />
@@ -703,36 +707,89 @@ const slides = [
     );
   },
 
-  /* ── SLIDE 16 — PROJEÇÃO ANUAL ── */
+  /* ── SLIDE 16 — PROJEÇÃO ANUAL REALISTA ── */
   () => {
-    const newMRR = 50000 * MRR_MEDIO;
+    const newMRR = 500 * 5 * MRR_MEDIO; // 500 vendedores × 5 vendas = 2500 clientes/mês
     const churn = 0.03;
     const months: { mes: string; acumulado: number }[] = [];
     let acc = 0;
     for (let i = 1; i <= 12; i++) {
       acc = acc * (1 - churn) + newMRR;
-      months.push({ mes: `M${i}`, acumulado: Math.round(acc / 1e6 * 10) / 10 });
+      months.push({ mes: `M${i}`, acumulado: Math.round(acc / 1e3) });
     }
     return (
       <div className="flex flex-col justify-center h-full px-8 md:px-20 max-w-6xl mx-auto">
-        <SlideTitle num={16} title="Efeito Bola de Neve" sub="MRR Acumulado — 12 Meses" />
+        <SlideTitle num={16} title="Efeito Bola de Neve" sub="MRR Acumulado — 12 Meses (500 vendedores)" />
         <p className="text-[12px] mb-4" style={{ color: c.textMuted }}>
-          Cenário conservador: 5 vendas/vendedor/mês, 10.000 vendedores, churn 3%/mês
+          Cenário: 500 vendedores × 5 vendas/mês, churn 3%/mês — <strong style={{ color: c.text }}>crescimento progressivo e sustentável</strong>
         </p>
         <ResponsiveContainer width="100%" height={280}>
           <LineChart data={months}>
             <CartesianGrid strokeDasharray="3 3" stroke={c.border} />
             <XAxis dataKey="mes" tick={{ fill: c.textMuted, fontSize: 11 }} />
-            <YAxis tick={{ fill: c.textMuted, fontSize: 11 }} tickFormatter={v => `R$${v}M`} />
-            <Tooltip formatter={(v: number) => `R$ ${v}M`}
+            <YAxis tick={{ fill: c.textMuted, fontSize: 11 }} tickFormatter={v => `R$${v}K`} />
+            <Tooltip formatter={(v: number) => `R$ ${v}K`}
               contentStyle={{ background: c.bgCard, border: `1px solid ${c.border}`, borderRadius: 12, color: c.text }} />
             <Line type="monotone" dataKey="acumulado" stroke={c.accent} strokeWidth={3}
               dot={{ fill: c.accent, r: 4 }} name="MRR Acumulado" />
           </LineChart>
         </ResponsiveContainer>
-        <div className="mt-6 grid grid-cols-2 gap-5">
-          <Metric label="MRR Mês 1" value={`R$ ${(newMRR / 1e6).toFixed(1)}M`} color={c.accent} />
-          <Metric label="MRR Mês 12" value={`R$ ${months[11].acumulado}M`} sub="Acumulado (– churn 3%)" color={c.green} />
+        <div className="mt-6 grid grid-cols-3 gap-5">
+          <Metric label="MRR Mês 1" value={`R$ ${(newMRR / 1e3).toFixed(0)}K`} color={c.accent} />
+          <Metric label="MRR Mês 12" value={`R$ ${months[11].acumulado}K`} sub="Acumulado (– churn 3%)" color={c.green} />
+          <Metric label="Clientes ativos M12" value={`~${Math.round(months[11].acumulado * 1000 / MRR_MEDIO).toLocaleString("pt-BR")}`} sub="Base ativa estimada" color={c.teal} />
+        </div>
+      </div>
+    );
+  },
+
+  /* ── SLIDE 16B — VISÃO DE LONGO PRAZO (10K+) ── */
+  () => {
+    const longTermData = [
+      { fase: "Ano 1", vendedores: 500, clientes: 15000, mrr: 15000 * MRR_MEDIO },
+      { fase: "Ano 2", vendedores: 2000, clientes: 50000, mrr: 50000 * MRR_MEDIO },
+      { fase: "Ano 3 (LATAM)", vendedores: 5000, clientes: 120000, mrr: 120000 * MRR_MEDIO },
+      { fase: "Ano 4 (Global)", vendedores: 10000, clientes: 250000, mrr: 250000 * MRR_MEDIO },
+    ];
+
+    const chartData = longTermData.map(d => ({
+      name: d.fase,
+      MRR: +(d.mrr / 1e6).toFixed(1),
+    }));
+
+    return (
+      <div className="flex flex-col justify-center h-full px-8 md:px-20 max-w-6xl mx-auto">
+        <SlideTitle num={17} title="Visão de Longo Prazo" sub="Roadmap de Escala + Internacionalização" />
+        <p className="text-[12px] mb-5" style={{ color: c.textMuted }}>
+          Projeção de crescimento progressivo — cenário de <strong style={{ color: c.text }}>expansão com internacionalização</strong> a partir do Ano 3.
+          Estes números são <strong style={{ color: c.accent }}>potencial de longo prazo</strong>, não metas imediatas.
+        </p>
+        <div className="grid md:grid-cols-2 gap-6">
+          <DataTable
+            headers={["Fase", "Vendedores", "Clientes Ativos", "MRR Estimado"]}
+            rows={longTermData.map(d => [
+              d.fase,
+              d.vendedores.toLocaleString("pt-BR"),
+              d.clientes.toLocaleString("pt-BR"),
+              `R$ ${(d.mrr / 1e6).toFixed(1)}M`,
+            ])}
+          />
+          <ResponsiveContainer width="100%" height={240}>
+            <BarChart data={chartData}>
+              <CartesianGrid strokeDasharray="3 3" stroke={c.border} />
+              <XAxis dataKey="name" tick={{ fill: c.textMuted, fontSize: 11 }} />
+              <YAxis tick={{ fill: c.textMuted, fontSize: 11 }} tickFormatter={v => `R$${v}M`} />
+              <Tooltip formatter={(v: number) => `R$ ${v.toFixed(1)}M`}
+                contentStyle={{ background: c.bgCard, border: `1px solid ${c.border}`, borderRadius: 12, color: c.text }} />
+              <Bar dataKey="MRR" fill={c.accent} radius={[6, 6, 0, 0]} />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+        <div className="mt-4 rounded-xl p-4 border" style={{ background: c.accentGlow3, borderColor: `${c.accent}15` }}>
+          <p className="text-[12px] text-center" style={{ color: c.textMuted }}>
+            <Globe className="w-4 h-4 inline mr-2" style={{ color: c.teal }} />
+            A escala de 10.000+ vendedores é viável com <strong style={{ color: c.text }}>internacionalização (LATAM e global)</strong> — o mercado brasileiro isolado comporta crescimento expressivo nos primeiros anos.
+          </p>
         </div>
       </div>
     );
