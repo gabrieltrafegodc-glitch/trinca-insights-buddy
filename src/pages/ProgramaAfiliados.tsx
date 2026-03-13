@@ -953,10 +953,10 @@ const slides = [
     </div>
   ),
 
-  /* ── SLIDE 21 — OPERAÇÃO E SUPORTE ── */
+  /* ── SLIDE 22 — OPERAÇÃO E SUPORTE ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-20 max-w-6xl mx-auto">
-      <SlideTitle num={21} title="O que a AdHub Entrega" sub="Operação & Suporte" />
+      <SlideTitle num={22} title="O que a AdHub Entrega" sub="Operação & Suporte" />
       <div className="grid md:grid-cols-2 gap-5">
         {[
           { icon: Cpu, title: "Automação Completa", items: ["GMB → IA → Vercel", "Geração de prévia automática", "Publicação e hospedagem"] },
