@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import PropostaWinnie from "./pages/PropostaWinnie";
 import PropostaCasaDom from "./pages/PropostaCasaDom";
 import ApresentacaoBlue from "./pages/ApresentacaoBlue";
+import ProgramaAfiliados from "./pages/ProgramaAfiliados";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
