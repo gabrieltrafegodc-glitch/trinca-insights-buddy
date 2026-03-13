@@ -644,52 +644,56 @@ const slides = [
     );
   },
 
-  /* ── SLIDE 15 — PROJEÇÕES MACRO 10K ── */
+  /* ── SLIDE 15 — PROJEÇÕES REALISTAS (Curto Prazo) ── */
   () => {
-    const data = [
-      { cenario: "5 vendas", clientes: 50000, mrr: 50000 * MRR_MEDIO },
-      { cenario: "6 vendas", clientes: 60000, mrr: 60000 * MRR_MEDIO },
-      { cenario: "7 vendas", clientes: 70000, mrr: 70000 * MRR_MEDIO },
-      { cenario: "10 vendas", clientes: 100000, mrr: 100000 * MRR_MEDIO },
-    ].map(d => ({
-      ...d,
-      ponta: d.mrr * COMISSOES.sub / 100,
-      criador: d.mrr * COMISSOES.criador / 100,
-      diretor: d.mrr * COMISSOES.diretor / 100,
-      adhub: d.mrr * COMISSOES.adhub / 100,
-    }));
+    const nearTermData = [
+      { cenario: "50 vendedores", vendedores: 50, vendasMes: 5 },
+      { cenario: "100 vendedores", vendedores: 100, vendasMes: 5 },
+      { cenario: "200 vendedores", vendedores: 200, vendasMes: 5 },
+      { cenario: "500 vendedores", vendedores: 500, vendasMes: 5 },
+    ].map(d => {
+      const clientes = d.vendedores * d.vendasMes;
+      const mrr = clientes * MRR_MEDIO;
+      return {
+        ...d, clientes, mrr,
+        ponta: mrr * COMISSOES.sub / 100,
+        criador: mrr * COMISSOES.criador / 100,
+        diretor: mrr * COMISSOES.diretor / 100,
+        adhub: mrr * COMISSOES.adhub / 100,
+      };
+    });
 
-    const chartData = data.map(d => ({
-      name: d.cenario,
-      "Sub-afiliados": +(d.ponta / 1e6).toFixed(1),
-      Diretores: +(d.diretor / 1e6).toFixed(1),
-      Criadores: +(d.criador / 1e6).toFixed(1),
-      AdHub: +(d.adhub / 1e6).toFixed(1),
+    const chartData = nearTermData.map(d => ({
+      name: d.cenario.replace(" vendedores", ""),
+      "Sub-afiliados": +(d.ponta / 1e3).toFixed(0),
+      Diretores: +(d.diretor / 1e3).toFixed(0),
+      Criadores: +(d.criador / 1e3).toFixed(0),
+      AdHub: +(d.adhub / 1e3).toFixed(0),
     }));
 
     return (
       <div className="flex flex-col justify-center h-full px-8 md:px-20 max-w-6xl mx-auto">
-        <SlideTitle num={15} title="Projeções Macro — 10.000 Vendedores" sub="Escala" />
+        <SlideTitle num={15} title="Projeções Realistas — Curto Prazo" sub="Primeiros 6–12 Meses" />
         <p className="text-[12px] mb-4" style={{ color: c.textMuted }}>
-          MRR médio: R$ {MRR_MEDIO}/cliente. Valores = <strong style={{ color: c.text }}>novo MRR do mês</strong>. MRR acumulado cresce com base ativa (– churn).
+          MRR médio: R$ {MRR_MEDIO}/cliente · 5 vendas/vendedor/mês · Valores = <strong style={{ color: c.text }}>novo MRR mensal</strong>
         </p>
         <div className="grid md:grid-cols-2 gap-6">
           <DataTable
-            headers={["Cenário", "Novos Clientes", "Novo MRR", `Diretor ${COMISSOES.diretor}%`, `Ponta ${COMISSOES.sub}%`]}
-            rows={data.map(d => [
-              d.cenario + "/mês",
+            headers={["Rede", "Novos Clientes/mês", "Novo MRR", `Diretor ${COMISSOES.diretor}%`, `Ponta ${COMISSOES.sub}%`]}
+            rows={nearTermData.map(d => [
+              d.cenario,
               d.clientes.toLocaleString("pt-BR"),
-              `R$ ${(d.mrr / 1e6).toFixed(1)}M`,
-              `R$ ${(d.diretor / 1e6).toFixed(1)}M`,
-              `R$ ${(d.ponta / 1e6).toFixed(1)}M`,
+              `R$ ${(d.mrr / 1e3).toFixed(0)}K`,
+              `R$ ${(d.diretor / 1e3).toFixed(0)}K`,
+              `R$ ${(d.ponta / 1e3).toFixed(0)}K`,
             ])}
           />
           <ResponsiveContainer width="100%" height={240}>
             <BarChart data={chartData}>
               <CartesianGrid strokeDasharray="3 3" stroke={c.border} />
               <XAxis dataKey="name" tick={{ fill: c.textMuted, fontSize: 11 }} />
-              <YAxis tick={{ fill: c.textMuted, fontSize: 11 }} tickFormatter={v => `${v}M`} />
-              <Tooltip formatter={(v: number) => `R$ ${v.toFixed(1)}M`}
+              <YAxis tick={{ fill: c.textMuted, fontSize: 11 }} tickFormatter={v => `R$${v}K`} />
+              <Tooltip formatter={(v: number) => `R$ ${v}K`}
                 contentStyle={{ background: c.bgCard, border: `1px solid ${c.border}`, borderRadius: 12, color: c.text }} />
               <Bar dataKey="Diretores" fill={c.gold} stackId="a" />
               <Bar dataKey="Criadores" fill={c.green} stackId="a" />
@@ -703,45 +707,98 @@ const slides = [
     );
   },
 
-  /* ── SLIDE 16 — PROJEÇÃO ANUAL ── */
+  /* ── SLIDE 16 — PROJEÇÃO ANUAL REALISTA ── */
   () => {
-    const newMRR = 50000 * MRR_MEDIO;
+    const newMRR = 500 * 5 * MRR_MEDIO; // 500 vendedores × 5 vendas = 2500 clientes/mês
     const churn = 0.03;
     const months: { mes: string; acumulado: number }[] = [];
     let acc = 0;
     for (let i = 1; i <= 12; i++) {
       acc = acc * (1 - churn) + newMRR;
-      months.push({ mes: `M${i}`, acumulado: Math.round(acc / 1e6 * 10) / 10 });
+      months.push({ mes: `M${i}`, acumulado: Math.round(acc / 1e3) });
     }
     return (
       <div className="flex flex-col justify-center h-full px-8 md:px-20 max-w-6xl mx-auto">
-        <SlideTitle num={16} title="Efeito Bola de Neve" sub="MRR Acumulado — 12 Meses" />
+        <SlideTitle num={16} title="Efeito Bola de Neve" sub="MRR Acumulado — 12 Meses (500 vendedores)" />
         <p className="text-[12px] mb-4" style={{ color: c.textMuted }}>
-          Cenário conservador: 5 vendas/vendedor/mês, 10.000 vendedores, churn 3%/mês
+          Cenário: 500 vendedores × 5 vendas/mês, churn 3%/mês — <strong style={{ color: c.text }}>crescimento progressivo e sustentável</strong>
         </p>
         <ResponsiveContainer width="100%" height={280}>
           <LineChart data={months}>
             <CartesianGrid strokeDasharray="3 3" stroke={c.border} />
             <XAxis dataKey="mes" tick={{ fill: c.textMuted, fontSize: 11 }} />
-            <YAxis tick={{ fill: c.textMuted, fontSize: 11 }} tickFormatter={v => `R$${v}M`} />
-            <Tooltip formatter={(v: number) => `R$ ${v}M`}
+            <YAxis tick={{ fill: c.textMuted, fontSize: 11 }} tickFormatter={v => `R$${v}K`} />
+            <Tooltip formatter={(v: number) => `R$ ${v}K`}
               contentStyle={{ background: c.bgCard, border: `1px solid ${c.border}`, borderRadius: 12, color: c.text }} />
             <Line type="monotone" dataKey="acumulado" stroke={c.accent} strokeWidth={3}
               dot={{ fill: c.accent, r: 4 }} name="MRR Acumulado" />
           </LineChart>
         </ResponsiveContainer>
-        <div className="mt-6 grid grid-cols-2 gap-5">
-          <Metric label="MRR Mês 1" value={`R$ ${(newMRR / 1e6).toFixed(1)}M`} color={c.accent} />
-          <Metric label="MRR Mês 12" value={`R$ ${months[11].acumulado}M`} sub="Acumulado (– churn 3%)" color={c.green} />
+        <div className="mt-6 grid grid-cols-3 gap-5">
+          <Metric label="MRR Mês 1" value={`R$ ${(newMRR / 1e3).toFixed(0)}K`} color={c.accent} />
+          <Metric label="MRR Mês 12" value={`R$ ${months[11].acumulado}K`} sub="Acumulado (– churn 3%)" color={c.green} />
+          <Metric label="Clientes ativos M12" value={`~${Math.round(months[11].acumulado * 1000 / MRR_MEDIO).toLocaleString("pt-BR")}`} sub="Base ativa estimada" color={c.teal} />
         </div>
       </div>
     );
   },
 
-  /* ── SLIDE 17 — CUSTO DAS PRÉVIAS ── */
+  /* ── SLIDE 16B — VISÃO DE LONGO PRAZO (10K+) ── */
+  () => {
+    const longTermData = [
+      { fase: "Ano 1", vendedores: 500, clientes: 15000, mrr: 15000 * MRR_MEDIO },
+      { fase: "Ano 2", vendedores: 2000, clientes: 50000, mrr: 50000 * MRR_MEDIO },
+      { fase: "Ano 3 (LATAM)", vendedores: 5000, clientes: 120000, mrr: 120000 * MRR_MEDIO },
+      { fase: "Ano 4 (Global)", vendedores: 10000, clientes: 250000, mrr: 250000 * MRR_MEDIO },
+    ];
+
+    const chartData = longTermData.map(d => ({
+      name: d.fase,
+      MRR: +(d.mrr / 1e6).toFixed(1),
+    }));
+
+    return (
+      <div className="flex flex-col justify-center h-full px-8 md:px-20 max-w-6xl mx-auto">
+        <SlideTitle num={17} title="Visão de Longo Prazo" sub="Roadmap de Escala + Internacionalização" />
+        <p className="text-[12px] mb-5" style={{ color: c.textMuted }}>
+          Projeção de crescimento progressivo — cenário de <strong style={{ color: c.text }}>expansão com internacionalização</strong> a partir do Ano 3.
+          Estes números são <strong style={{ color: c.accent }}>potencial de longo prazo</strong>, não metas imediatas.
+        </p>
+        <div className="grid md:grid-cols-2 gap-6">
+          <DataTable
+            headers={["Fase", "Vendedores", "Clientes Ativos", "MRR Estimado"]}
+            rows={longTermData.map(d => [
+              d.fase,
+              d.vendedores.toLocaleString("pt-BR"),
+              d.clientes.toLocaleString("pt-BR"),
+              `R$ ${(d.mrr / 1e6).toFixed(1)}M`,
+            ])}
+          />
+          <ResponsiveContainer width="100%" height={240}>
+            <BarChart data={chartData}>
+              <CartesianGrid strokeDasharray="3 3" stroke={c.border} />
+              <XAxis dataKey="name" tick={{ fill: c.textMuted, fontSize: 11 }} />
+              <YAxis tick={{ fill: c.textMuted, fontSize: 11 }} tickFormatter={v => `R$${v}M`} />
+              <Tooltip formatter={(v: number) => `R$ ${v.toFixed(1)}M`}
+                contentStyle={{ background: c.bgCard, border: `1px solid ${c.border}`, borderRadius: 12, color: c.text }} />
+              <Bar dataKey="MRR" fill={c.accent} radius={[6, 6, 0, 0]} />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+        <div className="mt-4 rounded-xl p-4 border" style={{ background: c.accentGlow3, borderColor: `${c.accent}15` }}>
+          <p className="text-[12px] text-center" style={{ color: c.textMuted }}>
+            <Globe className="w-4 h-4 inline mr-2" style={{ color: c.teal }} />
+            A escala de 10.000+ vendedores é viável com <strong style={{ color: c.text }}>internacionalização (LATAM e global)</strong> — o mercado brasileiro isolado comporta crescimento expressivo nos primeiros anos.
+          </p>
+        </div>
+      </div>
+    );
+  },
+
+  /* ── SLIDE 18 — CUSTO DAS PRÉVIAS ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-20 max-w-6xl mx-auto">
-      <SlideTitle num={17} title="Custo das Prévias" sub="Sustentabilidade" />
+      <SlideTitle num={18} title="Custo das Prévias" sub="Sustentabilidade" />
       <div className="grid md:grid-cols-2 gap-8">
         <div>
           <BulletList icon={DollarSign} items={[
@@ -784,10 +841,10 @@ const slides = [
     </div>
   ),
 
-  /* ── SLIDE 18 — DIRETOR GANHA EM VOLUME ── */
+  /* ── SLIDE 19 — DIRETOR GANHA EM VOLUME ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-20 max-w-6xl mx-auto">
-      <SlideTitle num={18} title="Por que o Diretor Ganha Mais" sub="Volume e Escala" />
+      <SlideTitle num={19} title="Por que o Diretor Ganha Mais" sub="Volume e Escala" />
       <div className="grid md:grid-cols-2 gap-8">
         <div>
           <BulletList icon={TrendingUp} color={c.gold} items={[
@@ -798,19 +855,19 @@ const slides = [
           ]} />
         </div>
         <div className="space-y-5">
-          <Metric label="50 Criadores sob gestão" value="↓" color={c.gold} />
-          <Metric label="2.000 Vendedores na rede" value="↓" color={c.orange} />
-          <Metric label="50.000 Clientes ativos" value="↓" color={c.green} />
-          <Metric label="Override do Diretor" value={`R$ ${(50000 * MRR_MEDIO * COMISSOES.diretor / 100).toLocaleString("pt-BR")}/mês`} color={c.gold} large />
+          <Metric label="10 Criadores sob gestão" value="↓" color={c.gold} />
+          <Metric label="200 Vendedores na rede" value="↓" color={c.orange} />
+          <Metric label="5.000 Clientes ativos" value="↓" color={c.green} />
+          <Metric label="Override do Diretor" value={`R$ ${(5000 * MRR_MEDIO * COMISSOES.diretor / 100).toLocaleString("pt-BR")}/mês`} color={c.gold} large />
         </div>
       </div>
     </div>
   ),
 
-  /* ── SLIDE 19 — CRIADOR DE CURSO ── */
+  /* ── SLIDE 20 — CRIADOR DE CURSO ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-20 max-w-6xl mx-auto">
-      <SlideTitle num={19} title="O que o Criador de Curso Ganha" sub="Modelo do Curso" />
+      <SlideTitle num={20} title="O que o Criador de Curso Ganha" sub="Modelo do Curso" />
       <div className="grid md:grid-cols-2 gap-8">
         <div>
           <p className="text-[11px] font-semibold tracking-widest uppercase mb-4" style={{ color: c.green }}>Divisão do curso</p>
@@ -851,10 +908,10 @@ const slides = [
     </div>
   ),
 
-  /* ── SLIDE 20 — SUB-AFILIADO ── */
+  /* ── SLIDE 21 — SUB-AFILIADO ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-20 max-w-6xl mx-auto">
-      <SlideTitle num={20} title="O que o Sub-afiliado Ganha" sub="Vendedor na Ponta" />
+      <SlideTitle num={21} title="O que o Sub-afiliado Ganha" sub="Vendedor na Ponta" />
       <div className="grid md:grid-cols-2 gap-8">
         <div className="space-y-5">
           <div className="rounded-2xl p-6 border" style={{ background: c.greenGlow, borderColor: `${c.green}18` }}>
@@ -896,10 +953,10 @@ const slides = [
     </div>
   ),
 
-  /* ── SLIDE 21 — OPERAÇÃO E SUPORTE ── */
+  /* ── SLIDE 22 — OPERAÇÃO E SUPORTE ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-20 max-w-6xl mx-auto">
-      <SlideTitle num={21} title="O que a AdHub Entrega" sub="Operação & Suporte" />
+      <SlideTitle num={22} title="O que a AdHub Entrega" sub="Operação & Suporte" />
       <div className="grid md:grid-cols-2 gap-5">
         {[
           { icon: Cpu, title: "Automação Completa", items: ["GMB → IA → Vercel", "Geração de prévia automática", "Publicação e hospedagem"] },
@@ -925,10 +982,10 @@ const slides = [
     </div>
   ),
 
-  /* ── SLIDE 22 — TIERS ── */
+  /* ── SLIDE 23 — TIERS ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-20 max-w-6xl mx-auto">
-      <SlideTitle num={22} title="Níveis de Progressão" sub="Tiers" />
+      <SlideTitle num={23} title="Níveis de Progressão" sub="Tiers" />
       <div className="grid md:grid-cols-3 gap-6">
         {[
           { tier: "Starter", color: c.textMuted, icon: UserPlus, items: ["Acesso básico", "Limite de prévias/dia", `Comissão padrão (${COMISSOES.sub}%)`, "Treinamento inicial"] },
@@ -954,10 +1011,10 @@ const slides = [
     </div>
   ),
 
-  /* ── SLIDE 23 — RISCOS ── */
+  /* ── SLIDE 24 — RISCOS ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-20 max-w-6xl mx-auto">
-      <SlideTitle num={23} title="Riscos e Mitigações" sub="Transparência" />
+      <SlideTitle num={24} title="Riscos e Mitigações" sub="Transparência" />
       <div className="grid md:grid-cols-2 gap-5">
         {[
           { risk: "Abuso de previews", solution: "Sub-afiliado paga R$ 30/prévia — controle natural + limites diários", icon: Shield },
@@ -980,10 +1037,10 @@ const slides = [
     </div>
   ),
 
-  /* ── SLIDE 24 — PRÓXIMOS PASSOS ── */
+  /* ── SLIDE 25 — PRÓXIMOS PASSOS ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-20 max-w-6xl mx-auto">
-      <SlideTitle num={24} title="Próximos Passos" sub="CTA" />
+      <SlideTitle num={25} title="Próximos Passos" sub="CTA" />
       <div className="grid md:grid-cols-3 gap-6">
         {[
           { icon: Award, title: "Diretor", color: c.gold, items: ["Alinhamento estratégico", "Metas e KPIs", "Contrato + override", "Recrutar criadores"] },
@@ -1009,7 +1066,7 @@ const slides = [
     </div>
   ),
 
-  /* ── SLIDE 25 — RESUMO FINAL ── */
+  /* ── SLIDE 26 — RESUMO FINAL ── */
   () => (
     <div className="flex flex-col items-center justify-center h-full px-8 md:px-20 max-w-5xl mx-auto text-center relative overflow-hidden">
       {/* Background glow */}
@@ -1039,8 +1096,8 @@ const slides = [
           <p className="text-[14px] font-bold" style={{ color: c.accentLight }}>200 clientes = R$ {(200 * MRR_MEDIO * COMISSOES.sub / 100).toLocaleString("pt-BR")}/mês</p>
         </div>
         <div className="rounded-2xl p-5 border" style={{ background: c.bgCard, borderColor: c.border }}>
-          <p className="text-[11px] uppercase tracking-widest mb-2" style={{ color: c.textMuted }}>Escala 10k</p>
-          <p className="text-[14px] font-bold" style={{ color: c.gold }}>MRR R$ 13,8M+/mês</p>
+          <p className="text-[11px] uppercase tracking-widest mb-2" style={{ color: c.textMuted }}>Longo Prazo</p>
+          <p className="text-[14px] font-bold" style={{ color: c.gold }}>500 vendedores → R$ {(500 * 5 * MRR_MEDIO / 1e3).toFixed(0)}K MRR/mês</p>
         </div>
       </div>
 
