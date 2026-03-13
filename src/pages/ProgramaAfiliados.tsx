@@ -1096,8 +1096,8 @@ const slides = [
           <p className="text-[14px] font-bold" style={{ color: c.accentLight }}>200 clientes = R$ {(200 * MRR_MEDIO * COMISSOES.sub / 100).toLocaleString("pt-BR")}/mês</p>
         </div>
         <div className="rounded-2xl p-5 border" style={{ background: c.bgCard, borderColor: c.border }}>
-          <p className="text-[11px] uppercase tracking-widest mb-2" style={{ color: c.textMuted }}>Escala 10k</p>
-          <p className="text-[14px] font-bold" style={{ color: c.gold }}>MRR R$ 13,8M+/mês</p>
+          <p className="text-[11px] uppercase tracking-widest mb-2" style={{ color: c.textMuted }}>Longo Prazo</p>
+          <p className="text-[14px] font-bold" style={{ color: c.gold }}>500 vendedores → R$ {(500 * 5 * MRR_MEDIO / 1e3).toFixed(0)}K MRR/mês</p>
         </div>
       </div>
 
