@@ -864,10 +864,10 @@ const slides = [
     </div>
   ),
 
-  /* ── SLIDE 19 — CRIADOR DE CURSO ── */
+  /* ── SLIDE 20 — CRIADOR DE CURSO ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-20 max-w-6xl mx-auto">
-      <SlideTitle num={19} title="O que o Criador de Curso Ganha" sub="Modelo do Curso" />
+      <SlideTitle num={20} title="O que o Criador de Curso Ganha" sub="Modelo do Curso" />
       <div className="grid md:grid-cols-2 gap-8">
         <div>
           <p className="text-[11px] font-semibold tracking-widest uppercase mb-4" style={{ color: c.green }}>Divisão do curso</p>
