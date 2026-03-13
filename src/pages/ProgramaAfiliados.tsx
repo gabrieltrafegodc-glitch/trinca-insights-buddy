@@ -577,19 +577,37 @@ const slides = [
           {/* Sub-afiliado */}
           <div className="rounded-2xl p-6 border" style={{ background: c.bgCard, borderColor: `${c.orange}18` }}>
             <UserPlus className="w-6 h-6 mb-3" style={{ color: c.orange }} />
-            <p className="font-bold text-[14px] mb-4" style={{ color: c.orange }}>1 Sub-afiliado</p>
-            <div className="space-y-2.5">
+            <p className="font-bold text-[14px] mb-3" style={{ color: c.orange }}>1 Sub-afiliado</p>
+            <p className="text-[10px] font-semibold tracking-widest uppercase mb-2" style={{ color: c.textMuted }}>Comissão recorrente ({COMISSOES.sub}%)</p>
+            <div className="space-y-2">
               {subClientes.map(n => (
                 <div key={n} className="flex justify-between text-[13px]" style={{ color: c.textMuted }}>
-                  <span>{n} clientes ativos</span>
+                  <span>{n} clientes</span>
                   <span className="font-bold" style={{ color: n >= 100 ? c.green : c.text }}>
                     R$ {(n * MRR_MEDIO * COMISSOES.sub / 100).toLocaleString("pt-BR")}/mês
                   </span>
                 </div>
               ))}
             </div>
-            <div className="mt-4 pt-3 border-t text-[11px]" style={{ borderColor: c.border, color: c.textMuted }}>
-              + implementação cobrada à parte
+            <div className="mt-4 pt-3 border-t" style={{ borderColor: c.border }}>
+              <p className="text-[10px] font-semibold tracking-widest uppercase mb-2" style={{ color: c.green }}>Setup R$ 1.000 + recorrência</p>
+              <div className="space-y-2">
+                {[5, 10, 20, 30].map(n => {
+                  const setup = n * 1000;
+                  const recorrencia = n * MRR_MEDIO * COMISSOES.sub / 100;
+                  return (
+                    <div key={n} className="flex justify-between text-[12px]" style={{ color: c.textMuted }}>
+                      <span>{n} vendas/mês</span>
+                      <span className="font-bold" style={{ color: c.green }}>
+                        R$ {(setup + recorrencia).toLocaleString("pt-BR")}/mês
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+              <p className="text-[10px] mt-2" style={{ color: c.textMuted }}>
+                Setup (100% seu) + comissão acumulativa
+              </p>
             </div>
           </div>
 
