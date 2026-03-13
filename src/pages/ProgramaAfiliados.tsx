@@ -1037,10 +1037,10 @@ const slides = [
     </div>
   ),
 
-  /* ── SLIDE 24 — PRÓXIMOS PASSOS ── */
+  /* ── SLIDE 25 — PRÓXIMOS PASSOS ── */
   () => (
     <div className="flex flex-col justify-center h-full px-8 md:px-20 max-w-6xl mx-auto">
-      <SlideTitle num={24} title="Próximos Passos" sub="CTA" />
+      <SlideTitle num={25} title="Próximos Passos" sub="CTA" />
       <div className="grid md:grid-cols-3 gap-6">
         {[
           { icon: Award, title: "Diretor", color: c.gold, items: ["Alinhamento estratégico", "Metas e KPIs", "Contrato + override", "Recrutar criadores"] },
