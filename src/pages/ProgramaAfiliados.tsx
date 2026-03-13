@@ -697,7 +697,7 @@ const slides = [
         </p>
         <div className="grid md:grid-cols-2 gap-6">
           <DataTable
-            headers={["Rede", "Novos Clientes/mês", "Novo MRR", `Diretor ${COMISSOES.diretor}%`, `Ponta ${COMISSOES.sub}%`]}
+            headers={["Rede", "Novos Clientes/mês", "Novo MRR", `Diretor (${COMISSOES.diretor}%)`, `Sub-afiliado (${COMISSOES.sub}%)`]}
             rows={nearTermData.map(d => [
               d.cenario,
               d.clientes.toLocaleString("pt-BR"),
