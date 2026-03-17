@@ -34,7 +34,7 @@ const Index = () => {
             <p className="text-sm text-muted-foreground text-center sm:text-right">
               Relatório gerado para <span className="font-medium text-foreground">Trinca Bar</span>
               <br />
-              <span className="text-primary">Janeiro 2025</span>
+              <span className="text-primary">Janeiro – Março 2026</span>
             </p>
           </div>
         </div>
